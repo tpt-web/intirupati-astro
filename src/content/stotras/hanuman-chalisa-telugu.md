@@ -23,7 +23,7 @@ heroImage: ""
 * చివర దోహా చదివి శ్రీరామ జయంతో ముగించండి.
 * భక్తితో చదవడం ముఖ్యం; ఉచ్చారణ తెలియకపోతే నెమ్మదిగా చదవండి.
 
-## Hanuman Chalisa Telugu Lyrics {#telugu-lyrics}
+## Hanuman Chalisa Telugu Lyrics {telugu-lyrics}
 
 ### దోహా
 

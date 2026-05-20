@@ -1,0 +1,378 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BlogGrid from '../components/BlogGrid.astro';
+import ToolsSection from '../components/ToolsSection.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+// Get the latest 3 blog posts sorted by date
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      /* Reset global Bear Blog constraints for full-width Tailwind layout */
+      main {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      body {
+        background-color: #f8fafc !important; /* slate-50 */
+        font-family: var(--font-atkinson), ui-sans-serif, system-ui, sans-serif !important;
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+        color: #1e293b !important; /* slate-800 */
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-slate-50 antialiased">
+    
+    <!-- Responsive Header -->
+    <Header />
+
+    <main class="flex-grow">
+      
+      <!-- Hero Section -->
+      <section class="relative bg-gradient-to-b from-amber-50/70 via-white to-slate-50 py-12 md:py-20 border-b border-slate-200/50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
+            
+            <!-- Hero Left: Text & CTAs -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+              <div class="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3.5 py-1 text-xs font-semibold tracking-wide text-amber-800">
+                <span class="flex h-1.5 w-1.5 rounded-full bg-amber-600 animate-pulse"></span>
+                Unofficial Tirupati Pilgrimage Portal
+              </div>
+              
+              <h1 class="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl leading-[1.1]">
+                Plan Your Perfect <br class="hidden sm:inline" />
+                <span class="bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent">Tirumala Darshan</span>
+              </h1>
+              
+              <p class="mx-auto max-w-2xl text-lg text-slate-600 lg:mx-0">
+                Step-by-step TTD booking guides, live offline darshan token schedules, hilltop hotel booking tips, and free planning tools for a smooth spiritual journey.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                <a href="#booking-tools" class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 px-6 py-3.5 text-base font-bold text-white shadow-lg shadow-orange-500/20 hover:from-amber-700 hover:to-orange-700 hover:shadow-orange-500/35 transition-all">
+                  Estimate Darshan Cost
+                </a>
+                <a href="#darshan-guides" class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                  Explore Darshan Guides
+                </a>
+              </div>
+              
+              <!-- Quick Stats / Highlights -->
+              <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-100 max-w-md mx-auto lg:mx-0">
+                <div class="text-center lg:text-left">
+                  <div class="text-xl font-bold text-slate-900">3-6 Hrs</div>
+                  <div class="text-xs text-slate-500 font-medium">Avg. SED Wait</div>
+                </div>
+                <div class="text-center lg:text-left">
+                  <div class="text-xl font-bold text-slate-900">3 Months</div>
+                  <div class="text-xs text-slate-500 font-medium">Ticket Advance</div>
+                </div>
+                <div class="text-center lg:text-left">
+                  <div class="text-xl font-bold text-slate-900">2 Paths</div>
+                  <div class="text-xs text-slate-500 font-medium">Footpath Routes</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hero Right: Main Visual Asset -->
+            <div class="lg:col-span-5 flex justify-center">
+              <div class="relative w-full max-w-md overflow-hidden rounded-2xl border-4 border-white bg-slate-100 shadow-xl ring-1 ring-slate-200/80">
+                <!-- Eager load responsive size for Core Web Vitals (LCP) -->
+                <picture>
+                  <source srcset="/images/2026/04/Moodu-namalu-new-1024x572.webp" media="(min-width: 768px)" />
+                  <img
+                    src="/images/2026/04/Moodu-namalu-new-768x429.webp"
+                    width="768"
+                    height="429"
+                    alt="Lord Venkateswara Namam Symbol in Tirumala"
+                    loading="eager"
+                    class="h-full w-full object-cover"
+                  />
+                </picture>
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-950/80 to-transparent p-4 text-white">
+                  <div class="text-xs font-semibold text-amber-400">TIRUMALA TIRUPATI</div>
+                  <div class="text-sm font-medium opacity-90">Moodu Namalu - The sacred forehead symbol</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Adsense Placeholder Block 1 -->
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 my-8">
+        <div class="flex flex-col items-center justify-center bg-slate-100 border border-dashed border-slate-300 rounded-xl p-4 text-center min-h-[100px] md:min-h-[150px]">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Sponsored Advertisement</span>
+          <div class="text-xs text-slate-500 font-mono">Google AdSense Responsive Unit [Top Leaderboard]</div>
+          <div class="text-[10px] text-slate-400 mt-0.5">Will display relevant travel ads based on devotee search intents</div>
+        </div>
+      </div>
+
+      <!-- Temple Guides Section -->
+      <section id="darshan-guides" class="py-16 bg-white border-y border-slate-200/50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+              Essential Tirupati Darshan Guides
+            </h2>
+            <p class="mt-4 text-lg text-slate-600">
+              Understanding TTD darshan types is the first step to planning. Choose the best ticket slot and pathway for your family.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <!-- Special Entry Darshan -->
+            <div class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div class="space-y-4">
+                <div class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-amber-100 text-amber-700">
+                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900">Special Entry Darshan</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Priced at <strong>Rs. 300 per ticket</strong>. Quotas are released online 3 months in advance. Reporting point is ATC circle. Wait times average 3-5 hours on weekdays.
+                </p>
+              </div>
+              <div class="pt-5 border-t border-slate-100 mt-4">
+                <span class="text-xs font-semibold text-amber-700 uppercase tracking-wider">Online Booking Only</span>
+              </div>
+            </div>
+
+            <!-- Free Sarva Darshan -->
+            <div class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div class="space-y-4">
+                <div class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-orange-100 text-orange-700">
+                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900">Free Sarva Darshan</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Requires <strong>SSD (Slotted Sarva Darshan) tokens</strong>. Available offline at local counters in Tirupati (Railway Station, Srinivasam, Bhudevi Complex). Waiting times can stretch up to 10-24 hours.
+                </p>
+              </div>
+              <div class="pt-5 border-t border-slate-100 mt-4">
+                <span class="text-xs font-semibold text-orange-700 uppercase tracking-wider">Offline Counters</span>
+              </div>
+            </div>
+
+            <!-- Divya Darshan (Footpath) -->
+            <div class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div class="space-y-4">
+                <div class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-yellow-100 text-yellow-700">
+                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900">Divya Darshan (Pedestrian)</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  For devotees who walk up the hills. Alipiri Metlu path (3,550 steps, ~4 hrs) or Srivari Mettu path (2,388 steps, ~2 hrs). Includes free luggage transfer service to the hilltop.
+                </p>
+              </div>
+              <div class="pt-5 border-t border-slate-100 mt-4">
+                <span class="text-xs font-semibold text-yellow-700 uppercase tracking-wider">Walking Pilgrims</span>
+              </div>
+            </div>
+
+            <!-- Rules & Dress Code -->
+            <div class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div class="space-y-4">
+                <div class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-slate-100 text-slate-700">
+                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900">Rules &amp; Dress Code</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  <strong>Strict traditional wear</strong> is mandatory inside queue complexes. Men: Dhoti/Dhoti-Kurta. Women: Saree/Churidar with Dupatta. Mobiles, cameras, and leather belts are banned.
+                </p>
+              </div>
+              <div class="pt-5 border-t border-slate-100 mt-4">
+                <span class="text-xs font-semibold text-slate-700 uppercase tracking-wider">Mandatory Policy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reusable Tools Section Component -->
+      <ToolsSection />
+
+      <!-- Adsense Placeholder Block 2 -->
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 my-8">
+        <div class="flex flex-col items-center justify-center bg-slate-100 border border-dashed border-slate-300 rounded-xl p-4 text-center min-h-[100px]">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Sponsored Advertisement</span>
+          <div class="text-xs text-slate-500 font-mono">Google AdSense Responsive Banner Unit [Middle Inline]</div>
+        </div>
+      </div>
+
+      <!-- Hotel Guides Section -->
+      <section id="hotels" class="py-16 bg-white border-y border-slate-200/50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+              Where to Stay: Tirupati vs. Tirumala
+            </h2>
+            <p class="mt-4 text-lg text-slate-600">
+              Choosing the right location for accommodation is critical. There is a huge difference in rules and options uphill vs downhill.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12">
+            
+            <!-- Stay in Tirumala (Hilltop) -->
+            <div class="rounded-2xl border border-slate-200 p-6 sm:p-8 space-y-4 bg-gradient-to-tr from-amber-50/20 to-white">
+              <div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-amber-50 text-amber-700">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2-2V16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900">Staying in Tirumala (Hilltop)</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Tirumala is the holy hilltop where the temple is located. Staying here puts you walking distance from the temple, but it is strictly regulated.
+              </p>
+              
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li class="flex items-start gap-2">
+                  <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span><strong>Pros:</strong> Immediate temple access, highly spiritual environment, extremely cheap rates (Rs. 100 - Rs. 1000).</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-5 w-5 text-rose-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <span><strong>Cons:</strong> No private hotels allowed. Rooms must be booked via TTD portal. Strictly limited to 24 hours stay maximum. No alcohol or non-veg food permitted.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Stay in Tirupati (Downhill) -->
+            <div class="rounded-2xl border border-slate-200 p-6 sm:p-8 space-y-4 bg-gradient-to-tr from-slate-50/50 to-white">
+              <div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-700">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900">Staying in Tirupati (Downhill)</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Tirupati is the base city at the foot of the hills. Highly recommended for travelers seeking flexibility, family comfort, and long stays.
+              </p>
+              
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li class="flex items-start gap-2">
+                  <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span><strong>Pros:</strong> Hundreds of private hotel options (budget to 5-star), flexible check-in schedules, broad multi-cuisine restaurant choices.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-5 w-5 text-rose-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <span><strong>Cons:</strong> Requires 45-minute uphill road trip (bus or taxi) or 2-4 hours walk to reach the temple for your darshan slot.</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Quick Hotel Recommendations Table -->
+          <div class="mt-12 overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-white">
+            <table class="w-full text-left border-collapse text-sm">
+              <thead class="bg-slate-50 border-b border-slate-200">
+                <tr>
+                  <th class="p-4 font-bold text-slate-700">Category</th>
+                  <th class="p-4 font-bold text-slate-700">Highly Recommended Hotels</th>
+                  <th class="p-4 font-bold text-slate-700">Best For</th>
+                  <th class="p-4 font-bold text-slate-700">Avg. Price Range</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-slate-600">
+                <tr>
+                  <td class="p-4 font-bold text-slate-800">Budget Stay</td>
+                  <td class="p-4">Bhimas, Srinivasam Complex (TTD), local guest lodges</td>
+                  <td class="p-4">Proximity to Railway Station &amp; Bus Stand</td>
+                  <td class="p-4">Rs. 800 - 1,500 / night</td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-bold text-slate-800">Mid-Range Comfort</td>
+                  <td class="p-4">Hotel Bliss, Minerva Grand, Ramee Guestline</td>
+                  <td class="p-4">Families seeking good dining options &amp; clean rooms</td>
+                  <td class="p-4">Rs. 2,000 - 3,500 / night</td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-bold text-slate-800">Premium / Star</td>
+                  <td class="p-4">Taj Tirupati, Fortune Select Grand Ridge, Marasa Sarovar</td>
+                  <td class="p-4">Luxury travelers, spacious amenities, and relaxation</td>
+                  <td class="p-4">Rs. 4,500+ / night</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Latest Blog Updates Section -->
+      <section id="blog" class="py-16 bg-slate-50 border-b border-slate-200/50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
+            <div>
+              <h2 class="text-3xl font-extrabold tracking-tight text-slate-900">
+                Latest Updates &amp; Travel Guides
+              </h2>
+              <p class="mt-3 text-base text-slate-600 max-w-2xl">
+                Stay updated with recent ticket release notifications, queue delays, temple schedules, and pilgrim guidelines.
+              </p>
+            </div>
+            <a href="/blog/" class="mt-4 sm:mt-0 inline-flex items-center gap-1.5 font-bold text-amber-700 hover:text-amber-800 transition-colors text-sm shrink-0">
+              View All Guides
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Reusable Blog Grid Component -->
+          <BlogGrid posts={posts} />
+
+        </div>
+      </section>
+
+      <!-- Adsense Placeholder Block 3 -->
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 my-8">
+        <div class="flex flex-col items-center justify-center bg-slate-100 border border-dashed border-slate-300 rounded-xl p-4 text-center min-h-[100px] md:min-h-[150px]">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Sponsored Advertisement</span>
+          <div class="text-xs text-slate-500 font-mono">Google AdSense Responsive Unit [Bottom Anchor]</div>
+          <div class="text-[10px] text-slate-400 mt-0.5">Contextual ads related to Tirupati darshan packages and flights</div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+
+  </body>
+</html>

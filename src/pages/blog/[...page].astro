@@ -1,0 +1,141 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BlogGrid from '../../components/BlogGrid.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+
+export async function getStaticPaths({ paginate }) {
+	const posts = (await getCollection('blog')).sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	);
+	return paginate(posts, { pageSize: 9 });
+}
+
+const { page } = Astro.props;
+const posts = page.data;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<BaseHead title={`Blog Updates (Page ${page.currentPage}) - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<style>
+			/* Reset global Bear Blog constraints for full-width Tailwind layout */
+			main {
+				width: 100% !important;
+				max-width: 100% !important;
+				margin: 0 !important;
+				padding: 0 !important;
+			}
+			body {
+				background-color: #f8fafc !important; /* slate-50 */
+				font-family: var(--font-atkinson), ui-sans-serif, system-ui, sans-serif !important;
+				font-size: 16px !important;
+				line-height: 1.5 !important;
+				color: #1e293b !important; /* slate-800 */
+			}
+		</style>
+	</head>
+	<body class="min-h-screen flex flex-col bg-slate-50 antialiased">
+		<Header />
+		
+		<main class="flex-grow py-12 md:py-16">
+			<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+				
+				<!-- Page Header -->
+				<div class="max-w-3xl mx-auto text-center mb-12">
+					<h1 class="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+						Travel Blog &amp; <span class="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Live Updates</span>
+					</h1>
+					<p class="mt-4 text-base text-slate-600">
+						Stay updated with TTD booking release news, offline SSD token counts, footpath accessibility, weather alerts, and lodging tips. Page {page.currentPage} of {page.lastPage}.
+					</p>
+				</div>
+
+				<!-- Blog Grid Component -->
+				<BlogGrid posts={posts} />
+
+				<!-- Pagination Controls -->
+				<nav class="flex items-center justify-between border-t border-slate-200 px-4 py-8 sm:px-0 mt-12 max-w-4xl mx-auto">
+					<div class="-mt-px flex w-0 flex-1">
+						{page.url.prev ? (
+							<a href={page.url.prev} class="inline-flex items-center border-t-2 border-transparent pr-1 pt-4 text-sm font-semibold text-slate-500 hover:border-amber-500 hover:text-slate-800 transition-colors">
+								<svg class="mr-3 h-5 w-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+									<path fill-rule="evenodd" d="M18 10a.75.75 0 0 1-.75.75H4.66l4.47 4.47a.75.75 0 1 1-1.06 1.06l-5.75-5.75a.75.75 0 0 1 0-1.06l5.75-5.75a.75.75 0 0 1 1.06 1.06L4.66 9.25h12.59A.75.75 0 0 1 18 10Z" clip-rule="evenodd" />
+								</svg>
+								Previous
+							</a>
+						) : (
+							<span class="inline-flex items-center border-t-2 border-transparent pr-1 pt-4 text-sm font-semibold text-slate-300 cursor-not-allowed">
+								<svg class="mr-3 h-5 w-5 text-slate-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+									<path fill-rule="evenodd" d="M18 10a.75.75 0 0 1-.75.75H4.66l4.47 4.47a.75.75 0 1 1-1.06 1.06l-5.75-5.75a.75.75 0 0 1 0-1.06l5.75-5.75a.75.75 0 0 1 1.06 1.06L4.66 9.25h12.59A.75.75 0 0 1 18 10Z" clip-rule="evenodd" />
+								</svg>
+								Previous
+							</span>
+						)}
+					</div>
+					<div class="hidden md:-mt-px md:flex">
+						{Array.from({ length: page.lastPage }, (_, i) => {
+							const pageNum = i + 1;
+							const isCurrent = pageNum === page.currentPage;
+							// Show first page, last page, and pages around current page
+							const isNear = 2 >= Math.abs(pageNum - page.currentPage);
+							const isEdge = pageNum === 1 || pageNum === page.lastPage;
+							const url = pageNum === 1 ? '/blog/' : `/blog/${pageNum}/`;
+
+							if (isCurrent) {
+								return (
+									<span class="inline-flex items-center border-t-2 border-amber-500 px-4 pt-4 text-sm font-bold text-amber-600" aria-current="page">
+										{pageNum}
+									</span>
+								);
+							} else if (isNear || isEdge) {
+								return (
+									<a href={url} class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-semibold text-slate-500 hover:border-amber-400 hover:text-slate-800 transition-colors">
+										{pageNum}
+									</a>
+								);
+							} else if (pageNum === 2 || pageNum === page.lastPage - 1) {
+								return (
+									<span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-slate-400">
+										...
+									</span>
+								);
+							}
+							return null;
+						})}
+					</div>
+
+					<div class="flex md:hidden items-center pt-4">
+						<span class="text-sm font-semibold text-slate-500">
+							Page {page.currentPage} of {page.lastPage}
+						</span>
+					</div>
+
+					<div class="-mt-px flex w-0 flex-1 justify-end">
+						{page.url.next ? (
+							<a href={page.url.next} class="inline-flex items-center border-t-2 border-transparent pl-1 pt-4 text-sm font-semibold text-slate-500 hover:border-amber-500 hover:text-slate-800 transition-colors">
+								Next
+								<svg class="ml-3 h-5 w-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+									<path fill-rule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-4.47-4.47a.75.75 0 1 1 1.06-1.06l5.75 5.75a.75.75 0 0 1 0 1.06l-5.75 5.75a.75.75 0 1 1-1.06-1.06l4.47-4.47H2.75A.75.75 0 0 1 2 10Z" clip-rule="evenodd" />
+								</svg>
+							</a>
+						) : (
+							<span class="inline-flex items-center border-t-2 border-transparent pl-1 pt-4 text-sm font-semibold text-slate-300 cursor-not-allowed">
+								Next
+								<svg class="ml-3 h-5 w-5 text-slate-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+									<path fill-rule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-4.47-4.47a.75.75 0 1 1 1.06-1.06l5.75 5.75a.75.75 0 0 1 0 1.06l-5.75 5.75a.75.75 0 1 1-1.06-1.06l4.47-4.47H2.75A.75.75 0 0 1 2 10Z" clip-rule="evenodd" />
+								</svg>
+							</span>
+						)}
+					</div>
+				</nav>
+				
+			</div>
+		</main>
+
+		<Footer />
+	</body>
+</html>

@@ -1,0 +1,639 @@
+---
+// Meesho Shipping Label Crop Tool Component
+---
+
+<div class="mlct2 max-w-4xl mx-auto my-6 px-4">
+  <!-- Toast message -->
+  <div id="m2-toast" class="mlct2-toast"></div>
+
+  <!-- TOOL CARD -->
+  <div class="mlct2-card bg-white border border-gray-200 rounded-xl p-6 md:p-8 shadow-md">
+    <div class="mlct2-card-title text-xl font-bold flex items-center gap-2 mb-6">
+      ✂️ Upload, Crop & Sort Your Meesho Labels
+    </div>
+
+    <!-- File chip (shown after upload) -->
+    <div class="mlct2-file-chip flex items-center gap-3 bg-blue-50 border border-blue-200 rounded-lg p-3 mb-6 hidden" id="m2-chip">
+      <span class="text-xl">📄</span>
+      <span class="name text-blue-700 font-semibold flex-1 break-all" id="m2-chip-name"></span>
+      <button class="remove text-gray-500 hover:text-red-600 text-lg px-1 transition-colors" id="m2-chip-remove" title="Remove file">✕</button>
+    </div>
+
+    <!-- Upload zone -->
+    <div id="m2-upload-wrap">
+      <div class="mlct2-upload border-2 border-dashed border-red-300 rounded-xl p-10 text-center cursor-pointer transition-all bg-red-50/30 hover:bg-red-50/50 hover:border-red-500 hover:-translate-y-0.5 hover:shadow-lg" id="m2-upload-zone">
+        <input type="file" id="m2-file-input" accept="image/*,.pdf" class="absolute inset-0 opacity-0 cursor-pointer w-full h-full" aria-label="Upload Meesho shipping label PDF or image">
+        <span class="mlct2-upload-icon text-5xl block mb-3">📤</span>
+        <h3 class="text-lg font-bold mb-1">Upload Your Meesho Shipping Label</h3>
+        <p class="text-gray-500 text-sm mb-4">Drag & drop or click to select your file</p>
+        <p class="text-xs text-gray-400 mt-2"><strong>PDF supported</strong> &middot; JPG &middot; PNG &middot; WebP also accepted</p>
+        <span class="mlct2-upload-cta inline-block mt-4 bg-gradient-to-r from-red-500 to-red-700 text-white font-bold text-sm px-6 py-2.5 rounded-full shadow-md pointer-events-none">Choose File</span>
+      </div>
+    </div>
+
+    <!-- Sort Options (shown after file chosen) -->
+    <div id="m2-options" class="hidden mt-6">
+      <div class="mlct2-sort-row flex flex-col md:flex-row md:items-center gap-4 bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+        <span class="mlct2-sort-label text-sm font-bold text-gray-800">📋 Sort Labels By:</span>
+        <div class="mlct2-sort-btns flex flex-wrap gap-2">
+          <button class="mlct2-sort-btn active px-4 py-2 text-sm font-semibold border-2 border-gray-300 rounded-full bg-white transition-all flex items-center gap-2" id="m2-sort-courier" data-sort="courier">
+            <span class="check w-4 h-4 border border-gray-300 rounded-full flex items-center justify-center text-[10px] text-white bg-red-500 border-red-500 font-bold">✓</span> 🚚 Sort by Courier
+          </button>
+          <button class="mlct2-sort-btn px-4 py-2 text-sm font-semibold border-2 border-gray-300 rounded-full bg-white transition-all flex items-center gap-2" id="m2-sort-sku" data-sort="sku">
+            <span class="check w-4 h-4 border border-gray-300 rounded-full flex items-center justify-center text-[10px] text-white">✓</span> 📦 Sort by SKU
+          </button>
+          <button class="mlct2-sort-btn px-4 py-2 text-sm font-semibold border-2 border-gray-300 rounded-full bg-white transition-all flex items-center gap-2" id="m2-sort-none" data-sort="none">
+            <span class="check w-4 h-4 border border-gray-300 rounded-full flex items-center justify-center text-[10px] text-white">✓</span> 📄 No Sorting
+          </button>
+        </div>
+      </div>
+
+      <button class="mlct2-process-btn w-full bg-gradient-to-r from-red-500 to-red-700 text-white font-bold text-base py-3.5 px-6 rounded-lg transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none" id="m2-process-btn">
+        ✂️ Prepare Shipping Labels
+      </button>
+
+      <!-- Progress -->
+      <div class="mlct2-progress hidden mt-4" id="m2-progress">
+        <div class="mlct2-progress-bar-wrap h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
+          <div class="mlct2-progress-bar h-full w-0 bg-gradient-to-r from-red-500 to-blue-500 rounded-full transition-all duration-300" id="m2-progress-bar"></div>
+        </div>
+        <div class="mlct2-progress-txt text-xs text-gray-500 text-center" id="m2-progress-txt">Processing labels…</div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="mlct2-results hidden mt-6" id="m2-results">
+      <!-- Summary Tables -->
+      <div class="mlct2-summary-grid grid grid-cols-1 md:grid-cols-2 gap-6 mb-6" id="m2-summary-grid">
+        <!-- Courier Summary -->
+        <div class="mlct2-summary-box border border-gray-200 rounded-lg overflow-hidden bg-gray-50">
+          <div class="mlct2-summary-box-head bg-gradient-to-r from-red-500 to-red-700 text-white font-bold text-sm px-4 py-2.5 flex items-center gap-2">
+            🚚 Courier-wise Summary
+          </div>
+          <table class="mlct2-summary-table w-full border-collapse text-sm">
+            <thead>
+              <tr class="bg-gray-150 border-b border-gray-250"><th class="text-left font-bold px-4 py-2">Courier Partner</th><th class="text-right font-bold px-4 py-2">Orders</th></tr>
+            </thead>
+            <tbody id="m2-courier-tbody"></tbody>
+          </table>
+        </div>
+        <!-- SKU Summary -->
+        <div class="mlct2-summary-box border border-gray-200 rounded-lg overflow-hidden bg-gray-50">
+          <div class="mlct2-summary-box-head bg-gradient-to-r from-red-500 to-red-700 text-white font-bold text-sm px-4 py-2.5 flex items-center gap-2">
+            📦 SKU-wise Summary
+          </div>
+          <table class="mlct2-summary-table w-full border-collapse text-sm">
+            <thead>
+              <tr class="bg-gray-150 border-b border-gray-250"><th class="text-left font-bold px-4 py-2">SKU / Product</th><th class="text-right font-bold px-4 py-2">Qty</th></tr>
+            </thead>
+            <tbody id="m2-sku-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Label Previews -->
+      <div class="mlct2-preview-head flex items-center justify-between gap-4 mb-4">
+        <h3 class="text-base font-bold text-gray-800" id="m2-preview-count">Cropped Labels (0)</h3>
+        <span class="text-xs text-gray-400">Scroll to see all labels</span>
+      </div>
+      <div class="mlct2-preview-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-h-[420px] overflow-y-auto mb-6 pr-1" id="m2-preview-grid"></div>
+
+      <!-- Download -->
+      <div class="mlct2-dl-row flex flex-col sm:flex-row gap-3">
+        <button class="mlct2-btn-dl flex-1 bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 text-white font-bold text-sm py-3 px-4 rounded-lg flex items-center justify-center gap-2 shadow-md hover:-translate-y-0.5 transition-all" id="m2-dl-pdf">⬇️ Download All as PDF</button>
+        <button class="mlct2-btn-dl flex-1 bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-bold text-sm py-3 px-4 rounded-lg flex items-center justify-center gap-2 shadow-md hover:-translate-y-0.5 transition-all" id="m2-dl-zip">⬇️ Download All as Images</button>
+        <button class="mlct2-btn-new flex-1 bg-white border border-gray-300 hover:bg-gray-100 text-gray-700 font-bold text-sm py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors" id="m2-new">↺ Process New File</button>
+      </div>
+    </div>
+
+    <!-- Hidden Work Canvases -->
+    <canvas id="m2-canvas" style="display:none;"></canvas>
+    <canvas id="m2-work-canvas" style="display:none;"></canvas>
+  </div>
+</div>
+
+<!-- Scoped styling for specific elements not easily doable in Tailwind -->
+<style>
+  .mlct2-sort-btn.active {
+    background-color: rgba(239, 68, 68, 0.08) !important;
+    border-color: rgb(239, 68, 68) !important;
+    color: rgb(239, 68, 68) !important;
+  }
+  .mlct2-sort-btn.active .check {
+    background-color: rgb(239, 68, 68);
+    border-color: rgb(239, 68, 68);
+    color: white;
+  }
+  .mlct2-preview-grid::-webkit-scrollbar {
+    width: 6px;
+  }
+  .mlct2-preview-grid::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 999px;
+  }
+  .mlct2-label-thumb {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .mlct2-label-thumb:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  }
+  .mlct2-label-thumb canvas {
+    width: 100%;
+    display: block;
+  }
+  .mlct2-label-thumb-meta {
+    padding: 8px;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.75rem;
+    color: #64748b;
+    line-height: 1.4;
+  }
+  .mlct2-label-thumb-meta strong {
+    color: #1e293b;
+    display: block;
+    font-size: 0.77rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .mlct2-summary-table th, .mlct2-summary-table td {
+    padding: 8px 16px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .mlct2-summary-table tr:last-child td {
+    border-bottom: none;
+  }
+  .mlct2-badge-count {
+    background-color: #ef4444;
+    color: white;
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .mlct2-multi-badge {
+    background-color: #f59e0b;
+    color: white;
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-left: 4px;
+  }
+  /* Toast styling */
+  .mlct2-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #1e293b;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 50;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .mlct2-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<!-- Load CDN scripts for pdf.js and jsPDF -->
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script is:inline>
+  if (typeof pdfjsLib !== 'undefined') {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  }
+</script>
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- Main client-side script running the Meesho Label Crop tool -->
+<script is:inline>
+(function(){
+'use strict';
+
+/* ── STATE ── */
+var state = {
+  file: null,
+  fileType: null,   // 'pdf' | 'image'
+  sortMode: 'courier',
+  labels: [],       // [{canvas, courier, sku, orderNum, qty}]
+  sorted: []        // sorted copy
+};
+
+/* ── ELEMENTS ── */
+var fileInput    = document.getElementById('m2-file-input');
+var uploadZone   = document.getElementById('m2-upload-zone');
+var uploadWrap   = document.getElementById('m2-upload-wrap');
+var chip         = document.getElementById('m2-chip');
+var chipName     = document.getElementById('m2-chip-name');
+var chipRemove   = document.getElementById('m2-chip-remove');
+var optionsDiv   = document.getElementById('m2-options');
+var processBtn   = document.getElementById('m2-process-btn');
+var progressWrap = document.getElementById('m2-progress');
+var progressBar  = document.getElementById('m2-progress-bar');
+var progressTxt  = document.getElementById('m2-progress-txt');
+var resultsDiv   = document.getElementById('m2-results');
+var previewGrid  = document.getElementById('m2-preview-grid');
+var previewCount = document.getElementById('m2-preview-count');
+var courierTbody = document.getElementById('m2-courier-tbody');
+var skuTbody     = document.getElementById('m2-sku-tbody');
+var dlPdf        = document.getElementById('m2-dl-pdf');
+var dlZip        = document.getElementById('m2-dl-zip');
+var btnNew       = document.getElementById('m2-new');
+var workCanvas   = document.getElementById('m2-work-canvas');
+var wCtx         = workCanvas.getContext('2d');
+var toast        = document.getElementById('m2-toast');
+
+/* ── SORT BUTTONS ── */
+document.querySelectorAll('.mlct2-sort-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.mlct2-sort-btn').forEach(function(b){
+      b.classList.remove('active');
+      var chk = b.querySelector('.check');
+      if (chk) {
+        chk.className = 'check w-4 h-4 border border-gray-300 rounded-full flex items-center justify-center text-[10px] text-white';
+        chk.textContent = '✓';
+      }
+    });
+    this.classList.add('active');
+    var actChk = this.querySelector('.check');
+    if (actChk) {
+      actChk.className = 'check w-4 h-4 border border-gray-300 rounded-full flex items-center justify-center text-[10px] text-white bg-red-500 border-red-500 font-bold';
+    }
+    state.sortMode = this.dataset.sort;
+  });
+});
+
+/* ── DRAG DROP ── */
+uploadZone.addEventListener('dragover', function(e){ e.preventDefault(); uploadZone.classList.add('bg-red-50/70', 'border-red-500'); });
+uploadZone.addEventListener('dragleave', function(){ uploadZone.classList.remove('bg-red-50/70', 'border-red-500'); });
+uploadZone.addEventListener('drop', function(e){
+  e.preventDefault(); uploadZone.classList.remove('bg-red-50/70', 'border-red-500');
+  var f = e.dataTransfer.files[0];
+  if(f) handleFile(f);
+});
+fileInput.addEventListener('change', function(e){
+  if(e.target.files[0]) handleFile(e.target.files[0]);
+});
+
+function handleFile(f){
+  state.file = f;
+  state.fileType = f.type === 'application/pdf' ? 'pdf' : 'image';
+  chipName.textContent = f.name + ' (' + (f.size/1024).toFixed(0) + ' KB)';
+  chip.classList.remove('hidden');
+  chip.classList.add('flex');
+  optionsDiv.classList.remove('hidden');
+  resultsDiv.classList.add('hidden');
+  progressWrap.classList.add('hidden');
+}
+
+chipRemove.addEventListener('click', resetAll);
+
+function resetAll(){
+  state.file = null; state.labels = []; state.sorted = [];
+  fileInput.value = '';
+  chip.classList.add('hidden');
+  chip.classList.remove('flex');
+  optionsDiv.classList.add('hidden');
+  resultsDiv.classList.add('hidden');
+  progressWrap.classList.add('hidden');
+  processBtn.disabled = false;
+  processBtn.textContent = '✂️ Prepare Shipping Labels';
+}
+
+/* ── PROCESS ── */
+processBtn.addEventListener('click', function(){
+  if(!state.file) return;
+  processBtn.disabled = true;
+  resultsDiv.classList.add('hidden');
+  progressWrap.classList.remove('hidden');
+  setProgress(5, 'Reading file…');
+
+  if(state.fileType === 'pdf'){
+    processPDF();
+  } else {
+    processImage();
+  }
+});
+
+/* ── PDF PROCESSING ── */
+function processPDF(){
+  var reader = new FileReader();
+  reader.onload = function(e){
+    setProgress(15, 'Loading PDF…');
+    var typedArray = new Uint8Array(e.target.result);
+    pdfjsLib.getDocument(typedArray).promise.then(function(pdf){
+      var totalPages = pdf.numPages;
+      state.labels = [];
+      var processed = 0;
+
+      function doPage(pageNum){
+        pdf.getPage(pageNum).then(function(page){
+          // Render at 2x scale for quality
+          var viewport = page.getViewport({ scale: 2.0 });
+          var tempCanvas = document.createElement('canvas');
+          tempCanvas.width  = viewport.width;
+          tempCanvas.height = viewport.height;
+          var tempCtx = tempCanvas.getContext('2d');
+
+          page.render({ canvasContext: tempCtx, viewport: viewport }).promise.then(function(){
+            // Extract text for courier/SKU detection
+            page.getTextContent().then(function(textContent){
+              var allText = textContent.items.map(function(i){ return i.str; }).join(' ');
+              var info = extractLabelInfo(allText, pageNum);
+
+              // Determine how many labels per page (A4 = 2 labels of 4x6)
+              var labelsPerPage = detectLabelsPerPage(tempCanvas);
+              var crops = cropLabelsFromPage(tempCanvas, labelsPerPage);
+
+              crops.forEach(function(cropCanvas, idx){
+                state.labels.push({
+                  canvas:   cropCanvas,
+                  courier:  info.courier,
+                  sku:      info.sku,
+                  orderNum: info.orderNum || ('Page ' + pageNum + '-' + (idx+1)),
+                  qty:      info.qty
+                });
+              });
+
+              processed++;
+              var pct = 15 + Math.round((processed / totalPages) * 70);
+              setProgress(pct, 'Processed ' + processed + ' of ' + totalPages + ' pages…');
+
+              if(processed === totalPages){
+                setProgress(90, 'Sorting labels…');
+                setTimeout(function(){ finalise(); }, 100);
+              } else {
+                doPage(pageNum + 1);
+              }
+            });
+          });
+        });
+      }
+      doPage(1);
+    }).catch(function(err){
+      showToast('❌ Could not read PDF. Try a different file.');
+      processBtn.disabled = false;
+      progressWrap.classList.add('hidden');
+    });
+  };
+  reader.readAsArrayBuffer(state.file);
+}
+
+/* ── IMAGE PROCESSING ── */
+function processImage(){
+  var reader = new FileReader();
+  reader.onload = function(e){
+    setProgress(30, 'Reading image…');
+    var img = new Image();
+    img.onload = function(){
+      setProgress(60, 'Cropping labels…');
+      var tempCanvas = document.createElement('canvas');
+      tempCanvas.width  = img.naturalWidth;
+      tempCanvas.height = img.naturalHeight;
+      var tc = tempCanvas.getContext('2d');
+      tc.drawImage(img, 0, 0);
+
+      var labelsPerPage = detectLabelsPerPage(tempCanvas);
+      var crops = cropLabelsFromPage(tempCanvas, labelsPerPage);
+      state.labels = crops.map(function(c, i){
+        return { canvas: c, courier: 'Unknown', sku: 'Unknown', orderNum: 'Label-' + (i+1), qty: 1 };
+      });
+      setProgress(90, 'Finalising…');
+      setTimeout(finalise, 100);
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(state.file);
+}
+
+/* ── DETECT LABELS PER PAGE ── */
+function detectLabelsPerPage(canvas){
+  // A4 at 2x = ~1654x2339. Two 4x6 labels stacked = each ~1654x1169
+  var ratio = canvas.height / canvas.width;
+  if(ratio > 1.8) return 2;   // tall A4 → 2 labels stacked
+  if(ratio > 0.9) return 1;   // square-ish or landscape
+  return 1;
+}
+
+/* ── CROP LABELS FROM PAGE ── */
+function cropLabelsFromPage(srcCanvas, count){
+  var result = [];
+  var w = srcCanvas.width;
+  var h = srcCanvas.height;
+  for(var i = 0; i < count; i++){
+    var labelH = Math.floor(h / count);
+    var offsetY = i * labelH;
+    var out = document.createElement('canvas');
+    // Target 4:6 ratio (w:h = 2:3)
+    var targetH = Math.floor(w * 1.5);
+    out.width  = w;
+    out.height = Math.min(labelH, targetH);
+    var oc = out.getContext('2d');
+    oc.drawImage(srcCanvas, 0, offsetY, w, out.height, 0, 0, w, out.height);
+    result.push(out);
+  }
+  return result;
+}
+
+/* ── EXTRACT TEXT INFO ── */
+var COURIERS = [
+  'Delhivery','Valmo','Ecom Express','Ekart','XpressBees','Shadowfax',
+  'DTDC','Blue Dart','Shiprocket','WareIQ','Pickrr','Nimbus','Smartr',
+  'Amazon Logistics','IndiaPost'
+];
+
+function extractLabelInfo(text, pageNum){
+  var courier = 'Unknown';
+  var sku     = 'Unknown';
+  var orderNum = '';
+  var qty      = 1;
+
+  // Detect courier
+  var tu = text.toUpperCase();
+  for(var i = 0; i < COURIERS.length; i++){
+    if(tu.indexOf(COURIERS[i].toUpperCase()) > -1){
+      courier = COURIERS[i]; break;
+    }
+  }
+
+  // Detect Order ID (Meesho format: starts with digits, 9-14 chars)
+  var orderMatch = text.match(/\b(\d{9,14})\b/);
+  if(orderMatch) orderNum = orderMatch[1];
+  else orderNum = 'Order-' + pageNum;
+
+  // Detect SKU (look for SKU: or Product ID patterns)
+  var skuMatch = text.match(/SKU[:\s]+([A-Z0-9\-_]+)/i)
+    || text.match(/Product[:\s]+([A-Z0-9\-_]{4,20})/i);
+  if(skuMatch) sku = skuMatch[1].trim();
+  else {
+    // fallback: use first uppercase word-like token 4-12 chars
+    var tokens = text.match(/\b([A-Z]{3,4}[0-9]{2,8})\b/);
+    if(tokens) sku = tokens[1];
+  }
+
+  // Detect qty (Qty: or Pcs: patterns)
+  var qtyMatch = text.match(/(?:Qty|Pcs|Pieces?)[:\s]+(\d+)/i);
+  if(qtyMatch) qty = parseInt(qtyMatch[1], 10) || 1;
+
+  return { courier: courier, sku: sku, orderNum: orderNum, qty: qty };
+}
+
+/* ── SORT & FINALISE ── */
+function finalise(){
+  state.sorted = state.labels.slice();
+
+  if(state.sortMode === 'courier'){
+    state.sorted.sort(function(a, b){ return a.courier.localeCompare(b.courier); });
+  } else if(state.sortMode === 'sku'){
+    state.sorted.sort(function(a, b){ return a.sku.localeCompare(b.sku); });
+  }
+
+  buildSummaryTables();
+  buildPreviewGrid();
+  setProgress(100, 'Done!');
+  setTimeout(function(){
+    progressWrap.classList.add('hidden');
+    resultsDiv.classList.remove('hidden');
+    processBtn.disabled = false;
+    showToast('✅ ' + state.sorted.length + ' labels ready!');
+  }, 400);
+}
+
+/* ── SUMMARY TABLES ── */
+function buildSummaryTables(){
+  // Courier summary
+  var courierMap = {};
+  state.sorted.forEach(function(l){
+    courierMap[l.courier] = (courierMap[l.courier] || 0) + 1;
+  });
+  courierTbody.innerHTML = '';
+  Object.keys(courierMap).sort().forEach(function(c){
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td class="text-left font-medium text-gray-700 py-2.5 px-4 border-b border-gray-200">' + c + '</td><td class="text-right py-2.5 px-4 border-b border-gray-200"><span class="mlct2-badge-count">' + courierMap[c] + '</span></td>';
+    courierTbody.appendChild(tr);
+  });
+  // Total row
+  var totTr = document.createElement('tr');
+  totTr.innerHTML = '<td class="text-left font-bold text-gray-800 py-3 px-4 bg-gray-100">Total</td><td class="text-right font-bold text-gray-800 py-3 px-4 bg-gray-100">' + state.sorted.length + '</td>';
+  courierTbody.appendChild(totTr);
+
+  // SKU summary
+  var skuMap = {};
+  state.sorted.forEach(function(l){
+    skuMap[l.sku] = (skuMap[l.sku] || 0) + l.qty;
+  });
+  skuTbody.innerHTML = '';
+  Object.keys(skuMap).sort().forEach(function(s){
+    var count = skuMap[s];
+    var multi = count > 1 ? '<span class="mlct2-multi-badge">×' + count + '</span>' : '';
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td class="text-left font-medium text-gray-700 py-2.5 px-4 border-b border-gray-200">' + s + multi + '</td><td class="text-right py-2.5 px-4 border-b border-gray-200"><span class="mlct2-badge-count">' + count + '</span></td>';
+    skuTbody.appendChild(tr);
+  });
+  var skuTot = Object.values ? Object.values(skuMap).reduce(function(a,b){return a+b;},0)
+    : Object.keys(skuMap).map(function(k){return skuMap[k];}).reduce(function(a,b){return a+b;},0);
+  var skuTotTr = document.createElement('tr');
+  skuTotTr.innerHTML = '<td class="text-left font-bold text-gray-800 py-3 px-4 bg-gray-100">Total</td><td class="text-right font-bold text-gray-800 py-3 px-4 bg-gray-100">' + skuTot + '</td>';
+  skuTbody.appendChild(skuTotTr);
+}
+
+/* ── PREVIEW GRID ── */
+function buildPreviewGrid(){
+  previewGrid.innerHTML = '';
+  previewCount.textContent = 'Cropped Labels (' + state.sorted.length + ')';
+
+  state.sorted.forEach(function(label, idx){
+    var div = document.createElement('div');
+    div.className = 'mlct2-label-thumb';
+
+    // Thumbnail canvas
+    var thumb = document.createElement('canvas');
+    var scale = 160 / label.canvas.width;
+    thumb.width  = 160;
+    thumb.height = Math.round(label.canvas.height * scale);
+    var tc = thumb.getContext('2d');
+    tc.drawImage(label.canvas, 0, 0, thumb.width, thumb.height);
+
+    var meta = document.createElement('div');
+    meta.className = 'mlct2-label-thumb-meta';
+    meta.innerHTML = '<strong>#' + (idx+1) + ' · ' + label.orderNum + '</strong>' +
+      '🚚 ' + label.courier + '<br>📦 ' + label.sku;
+
+    div.appendChild(thumb);
+    div.appendChild(meta);
+    previewGrid.appendChild(div);
+  });
+}
+
+/* ── DOWNLOAD PDF ── */
+dlPdf.addEventListener('click', function(){
+  if(!state.sorted.length) return;
+  showToast('⏳ Generating PDF…');
+  setTimeout(function(){
+    try {
+      var { jsPDF } = window.jspdf;
+      // 4x6 inches in points (1 inch = 72pt)
+      var pdf = new jsPDF({ orientation:'portrait', unit:'pt', format:[288, 432] });
+      state.sorted.forEach(function(label, idx){
+        if(idx > 0) pdf.addPage([288, 432]);
+        var imgData = label.canvas.toDataURL('image/jpeg', 0.92);
+        pdf.addImage(imgData, 'JPEG', 0, 0, 288, 432);
+      });
+      pdf.save('meesho-labels-' + state.sortMode + '-sorted.pdf');
+      showToast('✅ PDF downloaded!');
+    } catch(e) {
+      showToast('❌ PDF generation failed. Try downloading as images.');
+    }
+  }, 100);
+});
+
+/* ── DOWNLOAD IMAGES (sequential PNG download) ── */
+dlZip.addEventListener('click', function(){
+  if(!state.sorted.length) return;
+  showToast('⏳ Downloading images…');
+  var delay = 0;
+  state.sorted.forEach(function(label, idx){
+    setTimeout(function(){
+      var a = document.createElement('a');
+      a.href = label.canvas.toDataURL('image/png');
+      a.download = 'meesho-label-' + String(idx+1).padStart(3,'0') + '-' + label.courier.replace(/\s+/g,'-') + '.png';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      if(idx === state.sorted.length - 1) showToast('✅ ' + state.sorted.length + ' images downloaded!');
+    }, delay);
+    delay += 120;
+  });
+});
+
+/* ── NEW FILE ── */
+btnNew.addEventListener('click', resetAll);
+
+/* ── HELPERS ── */
+function setProgress(pct, txt){
+  progressBar.style.width = pct + '%';
+  progressTxt.textContent = txt;
+}
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(function(){ toast.classList.remove('show'); }, 3500);
+}
+})();
+</script>

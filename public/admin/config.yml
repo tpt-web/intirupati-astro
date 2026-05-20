@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: tpt-web/intirupati-astro
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+
+      - { label: "Description", name: "description", widget: "text" }
+
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+
+      - { label: "Hero Image", name: "heroImage", widget: "image" }
+
+      - { label: "Body", name: "body", widget: "markdown" }

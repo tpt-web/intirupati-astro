@@ -1,0 +1,104 @@
+<!-- TOOL CARD -->
+  <div class="mlct2-card">
+    <div class="mlct2-card-title">✂️ Upload, Crop &amp; Sort Your Meesho Labels</div>
+
+    <!-- File chip (shown after upload) -->
+    <div class="mlct2-file-chip" id="m2-chip">
+      <span style="font-size:1.3rem;">📄</span>
+      <span class="name" id="m2-chip-name"></span>
+      <button class="remove" id="m2-chip-remove" title="Remove file">✕</button>
+    </div>
+
+    <!-- Upload zone -->
+    <div id="m2-upload-wrap">
+      <div class="mlct2-upload" id="m2-upload-zone">
+        <input type="file" id="m2-file-input" accept="image/*,.pdf" aria-label="Upload Meesho shipping label PDF or image">
+        <span class="mlct2-upload-icon">📤</span>
+        <h3>Upload Your Meesho Shipping Label</h3>
+        <p>Drag &amp; drop or click to select your file</p><div class="code-block code-block-2" style="margin: 8px 0; clear: both;">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5549925649870899"
+     crossorigin="anonymous"></script>
+<!-- intpt-p2 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5549925649870899" data-ad-slot="1924008995" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+        <p style="margin-top:8px;"><strong>PDF supported</strong>  ·  JPG · PNG · WebP also accepted</p>
+        <span class="mlct2-upload-cta">Choose File</span>
+      </div>
+    </div>
+
+    <!-- Sort Options (shown after file chosen) -->
+    <div id="m2-options" style="display:none;">
+      <div class="mlct2-sort-row">
+        <span class="mlct2-sort-label">📋 Sort Labels By:</span>
+        <div class="mlct2-sort-btns">
+          <button class="mlct2-sort-btn active" id="m2-sort-courier" data-sort="courier">
+            <span class="check">✓</span> 🚚 Sort by Courier
+          </button>
+          <button class="mlct2-sort-btn" id="m2-sort-sku" data-sort="sku">
+            <span class="check">✓</span> 📦 Sort by SKU
+          </button>
+          <button class="mlct2-sort-btn" id="m2-sort-none" data-sort="none">
+            <span class="check">✓</span> 📄 No Sorting
+          </button>
+        </div>
+      </div>
+
+      <button class="mlct2-process-btn" id="m2-process-btn">
+        ✂️ Prepare Shipping Labels
+      </button>
+
+      <!-- Progress -->
+      <div class="mlct2-progress" id="m2-progress">
+        <div class="mlct2-progress-bar-wrap">
+          <div class="mlct2-progress-bar" id="m2-progress-bar"></div>
+        </div>
+        <div class="mlct2-progress-txt" id="m2-progress-txt">Processing labels…</div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="mlct2-results" id="m2-results">
+
+      <!-- Summary Tables -->
+      <div class="mlct2-summary-grid" id="m2-summary-grid">
+        <!-- Courier Summary -->
+        <div class="mlct2-summary-box">
+          <div class="mlct2-summary-box-head">🚚 Courier-wise Summary</div>
+          <table class="mlct2-summary-table" id="m2-courier-table">
+            <thead><tr><th>Courier Partner</th><th>Orders</th></tr></thead>
+            <tbody id="m2-courier-tbody"></tbody>
+          </table>
+        </div>
+        <!-- SKU Summary -->
+        <div class="mlct2-summary-box">
+          <div class="mlct2-summary-box-head">📦 SKU-wise Summary</div>
+          <table class="mlct2-summary-table" id="m2-sku-table">
+            <thead><tr><th>SKU / Product</th><th>Qty</th></tr></thead>
+            <tbody id="m2-sku-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Label Previews -->
+      <div class="mlct2-preview-head">
+        <h3 id="m2-preview-count">Cropped Labels (0)</h3>
+        <span style="font-size:.82rem;color:var(--muted);">Scroll to see all labels</span>
+      </div>
+      <div class="mlct2-preview-grid" id="m2-preview-grid"></div>
+
+      <!-- Download -->
+      <div class="mlct2-dl-row">
+        <button class="mlct2-btn-dl" id="m2-dl-pdf">⬇️ Download All as PDF</button>
+        <button class="mlct2-btn-dl" style="background:linear-gradient(135deg,#1565c0,#0d47a1);box-shadow:0 4px 16px rgba(21,101,192,.25);" id="m2-dl-zip">⬇️ Download All as Images</button>
+        <button class="mlct2-btn-new" id="m2-new">↺ Process New File</button>
+      </div>
+    </div>
+
+    <canvas id="m2-canvas" style="display:none;"></canvas>
+    <canvas id="m2-work-canvas" style="display:none;"></canvas>
+  </div>
+
+  

@@ -1,0 +1,95 @@
+---
+import { SITE_TITLE } from '../consts';
+
+const pathname = Astro.url.pathname;
+
+// Helper to determine if a link is active
+const isActive = (path: string) => {
+  // Normalize paths for comparison
+  const normalizedPath = pathname.endsWith('/') ? pathname : `${pathname}/`;
+  const normalizedTarget = path.endsWith('/') ? path : `${path}/`;
+  
+  if (path === '/') {
+    return pathname === '/' || pathname === '/index.html';
+  }
+  return normalizedPath.startsWith(normalizedTarget);
+};
+
+const navLinks = [
+  { href: '/#darshan-guides', label: 'Darshan Guides' },
+  { href: '/#booking-tools', label: 'Booking Tools' },
+  { href: '/#hotels', label: 'Hotels Guide' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/tools/', label: 'Tools' },
+  { href: '/about/', label: 'About' },
+];
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur-md">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <!-- Logo / Title -->
+    <a href="/" class="flex items-center gap-2.5 group">
+      <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white font-bold shadow-md shadow-orange-500/20 group-hover:scale-105 transition-transform duration-200">
+        <!-- Venkateswara Namam Symbol Simplified in SVG -->
+        <svg class="h-6.5 w-6.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v18M8 5a4 4 0 00-4 4v4a4 4 0 004 4m8-12a4 4 0 014 4v4a4 4 0 01-4 4" />
+        </svg>
+      </div>
+      <span class="text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl">
+        In <span class="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Tirupati</span>
+      </span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600 text-sm">
+      {navLinks.map((link) => (
+        <a 
+          href={link.href} 
+          class={`transition-colors py-1 border-b-2 ${
+            isActive(link.href) 
+              ? 'text-amber-600 border-amber-600 font-semibold' 
+              : 'text-slate-600 border-transparent hover:text-amber-600 hover:border-amber-500/30'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Mobile Menu Toggle Button -->
+    <button id="mobile-menu-btn" class="rounded-lg p-2 text-slate-600 hover:bg-slate-100 md:hidden focus:outline-none focus:ring-2 focus:ring-amber-500" aria-label="Toggle Menu">
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Navigation -->
+  <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white px-4 py-3 md:hidden">
+    <nav class="flex flex-col gap-1.5 font-medium text-slate-700 text-base">
+      {navLinks.map((link) => (
+        <a 
+          href={link.href} 
+          class={`block rounded-lg px-3 py-2 transition-colors ${
+            isActive(link.href)
+              ? 'bg-amber-50 text-amber-700 font-semibold'
+              : 'hover:bg-slate-50 hover:text-amber-600'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  // Mobile Menu Toggle Logic
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>

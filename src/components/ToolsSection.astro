@@ -1,0 +1,221 @@
+---
+---
+
+<section id="booking-tools" class="py-16 bg-slate-50 border-b border-slate-200/50">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="text-3xl font-extrabold tracking-tight text-slate-900">
+        Interactive Planning Tools
+      </h2>
+      <p class="mt-4 text-base text-slate-600">
+        Devotees need to budget both time and money for their visit. Use our unofficial calculator to estimate your requirements instantly.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-12">
+      
+      <!-- Calculator Tool Form & Results -->
+      <div class="lg:col-span-8 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+        <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+          <svg class="h-5 w-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+          Darshan Cost &amp; Time Estimator
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Form Inputs -->
+          <div class="space-y-4">
+            <div>
+              <label for="darshan-type" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Darshan Ticket Type</label>
+              <select id="darshan-type" class="w-full rounded-lg border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-800 focus:border-amber-500 focus:ring-1 focus:ring-amber-500">
+                <option value="sed" selected>Special Entry Darshan (Rs. 300)</option>
+                <option value="free">Free Sarva Darshan (SSD Token)</option>
+                <option value="footpath">Divya Darshan (Footpath Walk)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="group-size" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Group Size (People)</label>
+              <input id="group-size" type="number" min="1" max="20" value="2" class="w-full rounded-lg border border-slate-300 bg-slate-50 px-3.5 py-2 text-sm text-slate-800 focus:border-amber-500 focus:ring-1 focus:ring-amber-500" />
+            </div>
+
+            <div>
+              <label for="stay-choice" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Accommodation Choice</label>
+              <select id="stay-choice" class="w-full rounded-lg border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-800 focus:border-amber-500 focus:ring-1 focus:ring-amber-500">
+                <option value="none">No Stay needed / Day Trip</option>
+                <option value="free">TTD Free Choultry Room</option>
+                <option value="budget">Tirupati Budget Hotel (Rs. 1,200)</option>
+                <option value="midrange" selected>Tirupati Mid-Range Hotel (Rs. 2,200)</option>
+                <option value="premium">Tirupati Premium Stay (Rs. 4,000)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="transport-choice" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Transit uphill (Tirupati to Tirumala)</label>
+              <select id="transport-choice" class="w-full rounded-lg border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-800 focus:border-amber-500 focus:ring-1 focus:ring-amber-500">
+                <option value="bus" selected>APSRTC Local Bus (Rs. 90/person return)</option>
+                <option value="taxi">Private Taxi / Car rental (Rs. 1,500 return)</option>
+                <option value="walk">Walking Pedestrian Path (Free)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Live Estimates Display -->
+          <div class="flex flex-col justify-between bg-slate-50 border border-slate-100 rounded-xl p-5 md:p-6">
+            <div>
+              <h4 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4">Estimated Requirements</h4>
+              
+              <div class="space-y-4">
+                <div>
+                  <div class="text-xs text-slate-500 font-medium">Estimated Ticket &amp; Travel Cost</div>
+                  <div id="est-total-cost" class="text-3xl font-extrabold text-amber-700">Rs. 2,980</div>
+                  <div class="text-[10px] text-slate-400">*Based on inputs provided</div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 pt-3 border-t border-slate-200/60">
+                  <div>
+                    <div class="text-xs text-slate-500 font-medium">Estimated Queue wait</div>
+                    <div id="est-wait-time" class="text-lg font-bold text-slate-800">3 - 5 Hours</div>
+                  </div>
+                  <div>
+                    <div class="text-xs text-slate-500 font-medium">Hilltop Travel Time</div>
+                    <div id="est-travel-time" class="text-lg font-bold text-slate-800">45 Minutes</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200/60 text-xs text-slate-600 leading-relaxed bg-amber-50/50 p-3 rounded-lg border border-amber-100">
+              <strong>Devotee Pro-tip:</strong> <span id="est-tip">Rs. 300 SED tickets must be booked online 90 days ahead. Keep prints of slot booking handy with registered ID cards.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking Schedule & Checklist -->
+      <div class="lg:col-span-4 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <svg class="h-5 w-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            TTD Ticket Quotas Release Calendar
+          </h3>
+          <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+            TTD releases ticket slots online monthly on their official portal. Make sure you set calendar reminders for release days!
+          </p>
+
+          <div class="space-y-3.5">
+            <div class="flex gap-3 pb-3 border-b border-slate-100">
+              <div class="text-xs font-bold text-amber-700 bg-amber-50 h-fit px-2 py-1 rounded">24th</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">Rs. 300 SED Tickets</h4>
+                <p class="text-xs text-slate-500">Released around 10:00 AM for the subsequent month.</p>
+              </div>
+            </div>
+            <div class="flex gap-3 pb-3 border-b border-slate-100">
+              <div class="text-xs font-bold text-amber-700 bg-amber-50 h-fit px-2 py-1 rounded">25th</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">Hilltop Accommodation</h4>
+                <p class="text-xs text-slate-500">Released around 10:00 AM. Requires prior booking of a valid Darshan slot.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <div class="text-xs font-bold text-slate-600 bg-slate-100 h-fit px-2 py-1 rounded">Weekly</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">Srivari Arjitha Sevas</h4>
+                <p class="text-xs text-slate-500">Electronic dip enrollment closes by every Friday afternoon.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-5 border-t border-slate-100 bg-slate-50 p-4 rounded-xl border border-slate-200/50">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Devotee Booking Checklist</h4>
+          <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+            <li>Valid Government Photo ID (Aadhaar, Voter ID)</li>
+            <li>Active mobile number (for OTP reception)</li>
+            <li>Recent color passport photograph (&lt; 150KB)</li>
+            <li>Bank account or UPI app ready for payment</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Interactive script for Cost/Time Calculator -->
+<script is:inline>
+  const darshanSelect = document.getElementById('darshan-type');
+  const groupInput = document.getElementById('group-size');
+  const staySelect = document.getElementById('stay-choice');
+  const transitSelect = document.getElementById('transport-choice');
+
+  const costDisplay = document.getElementById('est-total-cost');
+  const waitDisplay = document.getElementById('est-wait-time');
+  const travelDisplay = document.getElementById('est-travel-time');
+  const tipDisplay = document.getElementById('est-tip');
+
+  const CALCULATOR_DATA = {
+    darshan: {
+      sed: { name: 'Special Entry Darshan', ticketCost: 300, wait: '3 - 5 Hours', tip: 'Rs. 300 Special Entry Darshan tickets must be booked online 90-100 days ahead. Highly recommended for family members and senior citizens due to shorter, cleaner queues.' },
+      free: { name: 'Free Sarva Darshan', ticketCost: 0, wait: '10 - 24 Hours', tip: 'Free Sarva Darshan requires offline SSD tokens which you can get at local Tirupati counters. Prepare for long waiting lines (often overnight). Bring snacks and water.' },
+      footpath: { name: 'Divya Darshan', ticketCost: 0, wait: '6 - 12 Hours', tip: 'Divya Darshan tokens are given at Galigopuram (Alipiri path) or Srivari Mettu path. You must walk the entire path uphill. Highly spiritual, beautiful, but physically demanding.' }
+    },
+    stay: {
+      none: { costPerNight: 0 },
+      free: { costPerNight: 100 }, 
+      budget: { costPerNight: 1200 },
+      midrange: { costPerNight: 2200 },
+      premium: { costPerNight: 4000 }
+    },
+    transit: {
+      bus: { costPerPerson: 90, time: '45 Mins' },
+      taxi: { costPerCar: 1500, time: '35 Mins' },
+      walk: { costPerPerson: 0, time: '2 - 4 Hours' }
+    }
+  };
+
+  function calculateEstimates() {
+    if (!darshanSelect || !groupInput || !staySelect || !transitSelect) return;
+
+    const darshanType = darshanSelect.value;
+    const groupSize = Math.max(1, parseInt(groupInput.value) || 1);
+    const stayType = staySelect.value;
+    const transitType = transitSelect.value;
+
+    const darshanItem = CALCULATOR_DATA.darshan[darshanType];
+    const stayItem = CALCULATOR_DATA.stay[stayType];
+    const transitItem = CALCULATOR_DATA.transit[transitType];
+
+    const ticketCost = darshanItem.ticketCost * groupSize;
+    const stayCost = stayItem.costPerNight;
+    
+    let transitCost = 0;
+    if (transitType === 'bus') {
+      transitCost = transitItem.costPerPerson * groupSize;
+    } else if (transitType === 'taxi') {
+      transitCost = transitItem.costPerCar;
+    }
+
+    const totalCost = ticketCost + stayCost + transitCost;
+
+    if (costDisplay) costDisplay.textContent = `Rs. ${totalCost.toLocaleString('en-IN')}`;
+    if (waitDisplay) waitDisplay.textContent = darshanItem.wait;
+    if (travelDisplay) travelDisplay.textContent = transitItem.time;
+    if (tipDisplay) tipDisplay.textContent = darshanItem.tip;
+  }
+
+  const inputs = [darshanSelect, groupInput, staySelect, transitSelect];
+  inputs.forEach(input => {
+    if (input) {
+      input.addEventListener('change', calculateEstimates);
+      input.addEventListener('input', calculateEstimates);
+    }
+  });
+
+  calculateEstimates();
+</script>

@@ -1,0 +1,32 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import ToolPageLayout from '../../layouts/ToolPageLayout.astro';
+import MeeshoCropTool from '../../components/tools/MeeshoCropTool.astro';
+import TirumalaCrowdStatus from '../../components/tools/TirumalaCrowdStatus.astro';
+
+export async function getStaticPaths() {
+	const tools = await getCollection('tools');
+	return tools.map((tool) => ({
+		params: { slug: tool.id },
+		props: tool,
+	}));
+}
+type Props = CollectionEntry<'tools'>;
+
+const tool = Astro.props;
+const { slug } = Astro.params;
+const { Content } = await render(tool);
+---
+
+<ToolPageLayout {...tool.data}>
+	<!-- Render interactive tool based on slug inside the 'tool' slot -->
+	<Fragment slot="tool">
+		{slug === 'meesho-label-crop-tool-free' && <MeeshoCropTool />}
+		{slug === 'tirumala-tirupati-darshan-crowd-status-today-waiting-time-live' && <TirumalaCrowdStatus />}
+	</Fragment>
+
+	<!-- Render SEO copywriting/guide from markdown in the default slot -->
+	<div class="prose prose-red max-w-none">
+		<Content />
+	</div>
+</ToolPageLayout>

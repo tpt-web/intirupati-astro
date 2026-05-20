@@ -1,0 +1,61 @@
+---
+const today = new Date();
+---
+
+<footer class="w-full bg-slate-900 text-slate-400 border-t border-slate-800">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-8 pb-10 border-b border-slate-800">
+      
+      <div class="space-y-4 md:col-span-2">
+        <span class="text-lg font-bold text-white flex items-center gap-2">
+          In <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Tirupati</span>
+        </span>
+        <p class="text-xs text-slate-500 max-w-md leading-relaxed">
+          InTirupati.com is an independent information directory and planning guide for pilgrims visiting the holy shrine of Lord Venkateswara at Tirumala. We simplify travel logistics for devotees worldwide.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200">Useful Links</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="/#darshan-guides" class="text-slate-400 hover:text-white transition-colors">Darshan Guides</a></li>
+          <li><a href="/#booking-tools" class="text-slate-400 hover:text-white transition-colors">Darshan Calculator</a></li>
+          <li><a href="/#hotels" class="text-slate-400 hover:text-white transition-colors">Hotels &amp; Lodging</a></li>
+          <li><a href="/blog/" class="text-slate-400 hover:text-white transition-colors">All Updates</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200">Legal &amp; Info</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="/about/" class="text-slate-400 hover:text-white transition-colors">About Us</a></li>
+          <li><a href="/contact-us/" class="text-slate-400 hover:text-white transition-colors">Contact Us</a></li>
+          <li><a href="/disclaimer/" class="text-slate-400 hover:text-white transition-colors">Disclaimer</a></li>
+          <li><a href="/privacy-policy/" class="text-slate-400 hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="/terms-and-conditions/" class="text-slate-400 hover:text-white transition-colors">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200">Feeds &amp; Sites</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="/rss.xml" class="text-slate-400 hover:text-white transition-colors">RSS Feed</a></li>
+          <li><a href="/sitemap-index.xml" class="text-slate-400 hover:text-white transition-colors">Sitemap</a></li>
+          <li><a href="https://tirupatibalaji.ap.gov.in" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-400 transition-colors font-semibold">Official TTD Portal →</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-500">
+      <div>
+        &copy; {today.getFullYear()} InTirupati. All rights reserved.
+      </div>
+      
+      <!-- Crucial disclaimer for E-E-A-T and Search engine policy compliance -->
+      <div class="max-w-2xl text-center md:text-right leading-relaxed text-[10.5px]">
+        <strong>Disclaimer:</strong> This website is an unofficial guide. We do not sell tickets or make reservations. The official site is managed by Tirumala Tirupati Devasthanams (TTD) at <a href="https://tirupatibalaji.ap.gov.in" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:underline">tirupatibalaji.ap.gov.in</a>. All trademarks, names, and images belong to their respective owners.
+      </div>
+    </div>
+  </div>
+</footer>

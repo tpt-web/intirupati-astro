@@ -20,7 +20,7 @@ export async function getStaticPaths() {
 	const posts = await getCollection('stotras');
 
 	return posts.flatMap((post) =>
-		stotraLanguages.map((language) => ({
+		stotraLanguages.filter((language) => language.slug !== 'telugu').map((language) => ({
 			params: {
 				language: language.slug,
 				slug: stotraBaseSlug(post.id),
@@ -40,7 +40,8 @@ const pageTitle = `${baseTitle} - ${language.label} Lyrics`;
 const pageDescription = `Read ${baseTitle} in ${language.label}. Stotra lyrics generated from the original Telugu stotra post with a dedicated ${language.label} URL for easy reading.`;
 const canonicalURL = new URL(stotraLanguagePath(post, language), Astro.site).toString();
 const isTelugu = language.slug === 'telugu';
-const displayTitle = isTelugu ? pageTitle : transliterateStotraText(`${baseTitle} - ${language.label} Lyrics`, language.scheme);
+const nativeTitle = transliterateStotraText(pageTitle, language.scheme);
+const displayTitle = `${baseTitle} (${nativeTitle})`;
 const localizedSource = post.body
 	.replace(/\bTelugu\b/gi, language.label)
 	.replace(/తెలుగు/g, language.label)

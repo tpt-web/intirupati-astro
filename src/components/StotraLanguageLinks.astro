@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { stotraLanguagePath, stotraLanguages } from '../lib/stotraLanguages';
+import { stotraLanguageLinkPath, stotraLanguages } from '../lib/stotraLanguages';
 
 interface Props {
 	post: CollectionEntry<'stotras'>;
@@ -15,7 +15,7 @@ const { post, currentLanguage, labelTitle = post.data.title } = Astro.props;
 	<span>Read in:</span>
 	{stotraLanguages.map((language) => (
 		<a
-			href={stotraLanguagePath(post, language)}
+			href={stotraLanguageLinkPath(post, language)}
 			aria-current={currentLanguage === language.slug ? 'page' : undefined}
 		>
 			{language.label}

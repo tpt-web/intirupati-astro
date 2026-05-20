@@ -62,6 +62,6 @@ const adSlots = [
 
 <BlogPost {...post.data} adSlots={adSlots} canonicalURL={canonicalURL} structuredData={hanumanStructuredData}>
 	<Content />
-	<StotraLanguageLinks post={post} />
+	<StotraLanguageLinks post={post} currentLanguage="telugu" />
 	{showHanumanLanguageIndex && <HanumanChalisaSeoTags />}
 </BlogPost>

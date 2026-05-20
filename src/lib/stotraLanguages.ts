@@ -1,4 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
+import { stotraPath } from './postUrls';
 
 export type StotraLanguage = {
 	label: string;
@@ -38,3 +39,10 @@ export function stotraLanguagePath(post: CollectionEntry<'stotras'>, language: S
 	return `/stotras/${language.slug}/${stotraBaseSlug(post.id)}/`;
 }
 
+export function stotraLanguageLinkPath(post: CollectionEntry<'stotras'>, language: StotraLanguage) {
+	if (language.slug === 'telugu') {
+		return stotraPath(post);
+	}
+
+	return stotraLanguagePath(post, language);
+}

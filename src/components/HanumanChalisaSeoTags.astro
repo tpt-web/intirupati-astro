@@ -1,0 +1,45 @@
+---
+const tags = [
+	'Hanuman Chalisa English lyrics',
+	'Hanuman Chalisa Devanagari',
+	'Hanuman Chalisa Hindi lyrics',
+	'Hanuman Chalisa Telugu lyrics',
+	'Hanuman Chalisa Tamil lyrics',
+	'Hanuman Chalisa Kannada lyrics',
+	'Hanuman Chalisa Malayalam lyrics',
+	'Hanuman Chalisa Gujarati lyrics',
+	'Hanuman Chalisa Odia lyrics',
+	'Hanuman Chalisa Bengali lyrics',
+	'Hanuman Chalisa Marathi lyrics',
+	'Hanuman Chalisa Assamese lyrics',
+	'Hanuman Chalisa Punjabi lyrics',
+	'Hanuman Chalisa Sanskrit lyrics',
+	'Hanuman Chalisa Nepali lyrics',
+	'Hanuman Chalisa Sinhala lyrics',
+	'Hanuman Chalisa Grantha',
+];
+---
+
+<section class="chalisa-tags" aria-label="Hanuman Chalisa language search tags">
+	{tags.map((tag) => (
+		<span>{tag}</span>
+	))}
+</section>
+
+<style>
+	.chalisa-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 0.5rem;
+		margin: 2rem 0;
+		color: rgb(var(--gray));
+		font-size: 0.92rem;
+	}
+
+	.chalisa-tags span {
+		border: 1px solid rgba(var(--gray-light), 0.9);
+		border-radius: 999px;
+		padding: 0.25rem 0.6rem;
+		background: #fff;
+	}
+</style>

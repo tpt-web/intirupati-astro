@@ -1,0 +1,100 @@
+---
+interface Props {
+	content: string;
+}
+
+type Block =
+	| { type: 'h2' | 'h3' | 'p'; text: string }
+	| { type: 'ul'; items: string[] };
+
+const { content } = Astro.props;
+const lines = content
+	.replace(/\r\n/g, '\n')
+	.replace(/<[^>]*>/g, '')
+	.replace(/\\$/gm, '')
+	.split('\n');
+
+const blocks: Block[] = [];
+let paragraph: string[] = [];
+let list: string[] = [];
+
+function cleanInline(text: string) {
+	return text
+		.replace(/\[(.*?)\]\([^)]+\)/g, '$1')
+		.replace(/[*_`]/g, '')
+		.trim();
+}
+
+function flushParagraph() {
+	if (paragraph.length > 0) {
+		blocks.push({ type: 'p', text: paragraph.join('\n') });
+		paragraph = [];
+	}
+}
+
+function flushList() {
+	if (list.length > 0) {
+		blocks.push({ type: 'ul', items: list });
+		list = [];
+	}
+}
+
+for (const line of lines) {
+	const trimmed = line.trim();
+
+	if (!trimmed) {
+		flushParagraph();
+		flushList();
+		continue;
+	}
+
+	if (trimmed.startsWith('### ')) {
+		flushParagraph();
+		flushList();
+		blocks.push({ type: 'h3', text: cleanInline(trimmed.replace(/^###\s+/, '')) });
+		continue;
+	}
+
+	if (trimmed.startsWith('## ')) {
+		flushParagraph();
+		flushList();
+		blocks.push({ type: 'h2', text: cleanInline(trimmed.replace(/^##\s+/, '')) });
+		continue;
+	}
+
+	if (trimmed.startsWith('* ')) {
+		flushParagraph();
+		list.push(cleanInline(trimmed.replace(/^\*\s+/, '')));
+		continue;
+	}
+
+	flushList();
+	paragraph.push(cleanInline(trimmed));
+}
+
+flushParagraph();
+flushList();
+---
+
+<div class="translated-stotra-content">
+	{blocks.map((block) => {
+		if (block.type === 'h2') return <h2>{block.text}</h2>;
+		if (block.type === 'h3') return <h3>{block.text}</h3>;
+		if (block.type === 'ul') {
+			return (
+				<ul>
+					{block.items.map((item) => <li>{item}</li>)}
+				</ul>
+			);
+		}
+		return <p>{block.text}</p>;
+	})}
+</div>
+
+<style>
+	.translated-stotra-content p {
+		white-space: pre-line;
+		line-height: 1.8;
+	}
+</style>
+

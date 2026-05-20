@@ -2,7 +2,8 @@
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 import { postCanonicalURL } from '../../lib/postUrls';
-import StotraLanguageIndex from '../../components/StotraLanguageIndex.astro';
+import HanumanChalisaSeoTags from '../../components/HanumanChalisaSeoTags.astro';
+import StotraLanguageLinks from '../../components/StotraLanguageLinks.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('stotras');
@@ -42,7 +43,6 @@ const hanumanStructuredData = showHanumanLanguageIndex
 				'Hanuman Chalisa Punjabi lyrics',
 				'Hanuman Chalisa Hindi lyrics',
 				'Hanuman Chalisa Sanskrit lyrics',
-				'Hanuman Chalisa Konkani lyrics',
 				'Hanuman Chalisa Nepali lyrics',
 				'Hanuman Chalisa Sinhala lyrics',
 				'Hanuman Chalisa Grantha',
@@ -61,6 +61,7 @@ const adSlots = [
 ---
 
 <BlogPost {...post.data} adSlots={adSlots} canonicalURL={canonicalURL} structuredData={hanumanStructuredData}>
-	{showHanumanLanguageIndex && <StotraLanguageIndex />}
 	<Content />
+	<StotraLanguageLinks post={post} />
+	{showHanumanLanguageIndex && <HanumanChalisaSeoTags />}
 </BlogPost>

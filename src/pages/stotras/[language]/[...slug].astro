@@ -1,0 +1,82 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import Sanscript from '@indic-transliteration/sanscript';
+import BlogPost from '../../../layouts/BlogPost.astro';
+import StotraLanguageLinks from '../../../components/StotraLanguageLinks.astro';
+import TranslatedStotraContent from '../../../components/TranslatedStotraContent.astro';
+import {
+	type StotraLanguage,
+	stotraBaseSlug,
+	stotraLanguagePath,
+	stotraLanguages,
+} from '../../../lib/stotraLanguages';
+
+type Props = {
+	post: CollectionEntry<'stotras'>;
+	language: StotraLanguage;
+};
+
+export async function getStaticPaths() {
+	const posts = await getCollection('stotras');
+
+	return posts.flatMap((post) =>
+		stotraLanguages.map((language) => ({
+			params: {
+				language: language.slug,
+				slug: stotraBaseSlug(post.id),
+			},
+			props: { post, language },
+		})),
+	);
+}
+
+const { post, language } = Astro.props;
+const { Content } = await render(post);
+const baseTitle = post.data.title
+	.replace(/\s*-\s*.*$/, '')
+	.replace(/\s+Telugu\b/i, '')
+	.trim();
+const pageTitle = `${baseTitle} - ${language.label} Lyrics`;
+const pageDescription = `Read ${baseTitle} in ${language.label}. Stotra lyrics generated from the original Telugu stotra post with a dedicated ${language.label} URL for easy reading.`;
+const canonicalURL = new URL(stotraLanguagePath(post, language), Astro.site).toString();
+const isTelugu = language.slug === 'telugu';
+const translatedContent = isTelugu
+	? post.body
+	: Sanscript.t(post.body, 'telugu', language.scheme, {
+			syncope: language.slug === 'hindi' || language.slug === 'marathi' || language.slug === 'nepali',
+		});
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'CreativeWork',
+	name: pageTitle,
+	headline: pageTitle,
+	description: pageDescription,
+	url: canonicalURL,
+	inLanguage: language.locale,
+	isPartOf: {
+		'@type': 'CollectionPage',
+		name: 'List of Stotras',
+		url: new URL('/stotras/', Astro.site).toString(),
+	},
+	datePublished: post.data.pubDate.toISOString(),
+	dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+};
+
+const adSlots = [
+	{ slot: '7608753970', label: 'Sponsored Advertisement' },
+	{ slot: '1924008995', label: 'Sponsored Advertisement' },
+	{ slot: '4981061956', label: 'Sponsored Advertisement' },
+];
+---
+
+<BlogPost
+	{...post.data}
+	title={pageTitle}
+	description={pageDescription}
+	adSlots={adSlots}
+	canonicalURL={canonicalURL}
+	structuredData={structuredData}
+>
+	<StotraLanguageLinks post={post} currentLanguage={language.slug} />
+	{isTelugu ? <Content /> : <TranslatedStotraContent content={translatedContent} />}
+</BlogPost>

@@ -1,0 +1,52 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { stotraLanguagePath, stotraLanguages } from '../lib/stotraLanguages';
+
+interface Props {
+	post: CollectionEntry<'stotras'>;
+	currentLanguage?: string;
+}
+
+const { post, currentLanguage } = Astro.props;
+---
+
+<nav class="stotra-language-links" aria-label={`${post.data.title} language versions`}>
+	<span>Read in:</span>
+	{stotraLanguages.map((language) => (
+		<a
+			href={stotraLanguagePath(post, language)}
+			aria-current={currentLanguage === language.slug ? 'page' : undefined}
+		>
+			{language.label}
+		</a>
+	))}
+</nav>
+
+<style>
+	.stotra-language-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem 0.6rem;
+		margin: 1.25rem 0;
+		font-size: 0.88rem;
+		line-height: 1.6;
+	}
+
+	.stotra-language-links span {
+		color: rgb(var(--gray));
+		font-weight: 700;
+	}
+
+	.stotra-language-links a {
+		color: #8a3b12;
+		text-decoration: underline;
+		text-underline-offset: 0.18em;
+	}
+
+	.stotra-language-links a[aria-current='page'] {
+		color: rgb(var(--gray-dark));
+		font-weight: 700;
+		text-decoration: none;
+	}
+</style>
+

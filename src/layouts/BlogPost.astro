@@ -80,6 +80,23 @@ const {
 			}
 			.title h1 {
 				margin: 0 0 0.5em 0;
+				font-size: clamp(2rem, 4vw, 2.75rem);
+				line-height: 1.15;
+			}
+			.prose :global(h2) {
+				margin: 2rem 0 0.75rem;
+				font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+				line-height: 1.25;
+			}
+			.prose :global(h3) {
+				margin: 1.6rem 0 0.65rem;
+				font-size: clamp(1.25rem, 2vw, 1.55rem);
+				line-height: 1.3;
+			}
+			.prose :global(h4) {
+				margin: 1.35rem 0 0.5rem;
+				font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+				line-height: 1.35;
 			}
 			.date {
 				margin-bottom: 0.5em;
@@ -109,6 +126,21 @@ const {
 				}
 				.title {
 					padding-top: 0.75rem;
+				}
+				.title h1 {
+					font-size: 1.75rem;
+					line-height: 1.2;
+				}
+				.prose :global(h2) {
+					margin-top: 1.6rem;
+					font-size: 1.35rem;
+				}
+				.prose :global(h3) {
+					margin-top: 1.25rem;
+					font-size: 1.18rem;
+				}
+				.prose :global(h4) {
+					font-size: 1.05rem;
 				}
 			}
 		</style>

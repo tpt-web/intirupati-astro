@@ -24,3 +24,20 @@ collections:
       - { label: "Hero Image", name: "heroImage", widget: "image" }
 
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "stotras"
+    label: "Stotras - స్తోత్రాలు"
+    folder: "src/content/stotras"
+    create: true
+    slug: "{{slug}}"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+
+      - { label: "Description", name: "description", widget: "text" }
+
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+
+      - { label: "Body", name: "body", widget: "markdown" }

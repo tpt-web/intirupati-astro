@@ -30,5 +30,16 @@ const tools = defineCollection({
 		}),
 });
 
-export const collections = { blog, tools };
+const stotras = defineCollection({
+	loader: glob({ base: './src/content/stotras', pattern: '**/*.{md,mdx}' }),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			pubDate: z.coerce.date(),
+			updatedDate: z.coerce.date().optional(),
+			heroImage: z.optional(z.string().startsWith('/').or(image())),
+		}),
+});
 
+export const collections = { blog, tools, stotras };

@@ -1,0 +1,27 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('stotras');
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: post,
+	}));
+}
+
+type Props = CollectionEntry<'stotras'>;
+
+const post = Astro.props;
+const { Content } = await render(post);
+
+const adSlots = [
+	{ slot: '7608753970', label: 'Sponsored Advertisement' },
+	{ slot: '1924008995', label: 'Sponsored Advertisement' },
+	{ slot: '4981061956', label: 'Sponsored Advertisement' },
+];
+---
+
+<BlogPost {...post.data} adSlots={adSlots}>
+	<Content />
+</BlogPost>

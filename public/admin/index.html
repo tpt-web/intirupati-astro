@@ -9,6 +9,10 @@
 </head>
 <body>
   <script>
+    if (window.location.hostname === 'intirupati.in' || window.location.hostname === 'www.intirupati.in') {
+      window.location.replace('https://quiet-pudding-d64a52.netlify.app/admin/');
+    }
+
     if (window.location.pathname === '/admin') {
       window.location.replace('/admin/');
     }

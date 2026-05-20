@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: tpt-web/intirupati-astro
+  name: git-gateway
   branch: main
 
 local_backend: true

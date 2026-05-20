@@ -2,6 +2,7 @@ backend:
   name: github
   repo: tpt-web/intirupati-astro
   branch: main
+  site_domain: intirupati.in
 
 local_backend: true
 

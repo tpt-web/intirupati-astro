@@ -3,13 +3,21 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, relatedLinks = [] } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead
+			title={title}
+			description={description}
+			image={heroImage}
+			ogType="article"
+			pubDate={pubDate}
+			updatedDate={updatedDate}
+		/>
 		<!-- Font Awesome for tools -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
@@ -53,6 +61,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				<!-- SEO Copywriting / Article Content -->
 				<div class="prose prose-slate prose-lg max-w-3xl mx-auto mt-12 pt-8 border-t border-gray-200">
 					<slot />
+					<RelatedLinks links={relatedLinks} />
 				</div>
 			</article>
 		</main>

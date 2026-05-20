@@ -16,7 +16,11 @@ const posts = (await getCollection('blog'))
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead
+      title={SITE_TITLE}
+      description={SITE_DESCRIPTION}
+      image="/images/2026/04/Moodu-namalu-new-1024x572.webp"
+    />
     <style>
       /* Reset global Bear Blog constraints for full-width Tailwind layout */
       main {

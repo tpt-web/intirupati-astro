@@ -5,10 +5,7 @@ import { getRelatedBlogLinks } from '../lib/relatedPosts';
 import { postCanonicalURL } from '../lib/postUrls';
 
 type BlogPostEntry = CollectionEntry<'blog'>;
-type StotraPostEntry = CollectionEntry<'stotras'>;
-type Props =
-	| { post: BlogPostEntry; collection: 'blog' }
-	| { post: StotraPostEntry; collection: 'stotras' };
+type Props = { post: BlogPostEntry; collection: 'blog' };
 
 export async function getStaticPaths() {
 	const reservedSlugs = new Set([
@@ -25,22 +22,13 @@ export async function getStaticPaths() {
 		'tools',
 	]);
 	const blogPosts = await getCollection('blog');
-	const stotraPosts = await getCollection('stotras');
 
-	return [
-		...blogPosts
-			.filter((post) => !reservedSlugs.has(post.id))
-			.map((post) => ({
-				params: { slug: post.id },
-				props: { post, collection: 'blog' },
-			})),
-		...stotraPosts
-			.filter((post) => !reservedSlugs.has(post.id))
-			.map((post) => ({
-				params: { slug: post.id },
-				props: { post, collection: 'stotras' },
-			})),
-	];
+	return blogPosts
+		.filter((post) => !reservedSlugs.has(post.id))
+		.map((post) => ({
+			params: { slug: post.id },
+			props: { post, collection: 'blog' },
+		}));
 }
 
 const { post, collection } = Astro.props as Props;

@@ -371,7 +371,7 @@ Enhance your pilgrimage by visiting these nearby attractions:
 ---|---|---|---  
 **October – November**|  Pleasant, post-monsoon| Moderate| Karthika Deepotsava  
 **December – January**|  Cool, winter| Moderate| New Year pilgrims  
-**February – March**|  Warm, comfortable| Very High| **[Maha Shivaratri](/blog/kapila-theertham-temple-sevas-timings-and-online-booking/)**  
+**February – March**|  Warm, comfortable| Very High| **[Maha Shivaratri](/kapila-theertham-temple-sevas-timings-and-online-booking/)**  
 **April – June**|  Hot, summer| Low| Regular worship  
 **July – September**|  Monsoon, humid| Low| Navaratri (September)  
   

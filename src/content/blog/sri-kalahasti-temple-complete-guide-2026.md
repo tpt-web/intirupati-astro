@@ -684,7 +684,7 @@ Sri Kalahasti is one of five temples representing the five elements:
   * **Type:** Natural scenic spot
   * **Best Season:** Monsoon (July-September)
 
-**4.[Tirupati Balaji Temple](/blog/list-of-ttd-temples-timings-open-closes-location/)**
+**4.[Tirupati Balaji Temple](/list-of-ttd-temples-timings-open-closes-location/)**
 
   * **Distance:** 36 km
   * **Travel Time:** 1 hour

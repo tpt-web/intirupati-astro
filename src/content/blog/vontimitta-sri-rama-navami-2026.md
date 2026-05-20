@@ -24,7 +24,7 @@ Rathotsavam| April 2, Morning
 Pushpayagam (Finale)| April 5, 6:00 PM – 9:00 PM  
 Booking Portal| ttdevasthanams.ap.gov.in  
   
-## About [Vontimitta ](/blog/vontimitta-kodandarama-swamy-temple-timing-booking-cost-sevas/)— Andhra Pradesh’s Very Own Ayodhya
+## About [Vontimitta ](/vontimitta-kodandarama-swamy-temple-timing-booking-cost-sevas/)— Andhra Pradesh’s Very Own Ayodhya
 
 Tucked away in Kadapa district, roughly 25 km from Kadapa city near Rajampet, the Sri Kodandarama Swamy Temple at Vontimitta is one of the most sacred Rama temples in all of South India. Locals and devotees across generations have lovingly called it **Dakshina Ayodhya** — the Ayodhya of the South — and for good reason.
 
@@ -94,7 +94,7 @@ The day after Kalyanam brings the most visually spectacular street event of the 
 
 The festival concludes beautifully with a Pushpayagam — a sacred offering of flowers — on the evening of April 5. It is a serene, devotionally rich finale to 11 days of grand celebrations.
 
-## How to Reach [Vontimitta](/blog/vontimitta-kodandarama-swamy-temple-timing-booking-cost-sevas/)
+## How to Reach [Vontimitta](/vontimitta-kodandarama-swamy-temple-timing-booking-cost-sevas/)
 
 ### By Bus
 

@@ -21,14 +21,14 @@ While Tirumala is synonymous with Lord Venkateswara, the region holds profound s
 
 Temple| Location & Key Feature  
 ---|---  
-**[Sri Kapileswara Swamy Temple](/blog/kapila-theertham-temple-sevas-timings-and-online-booking/)**|  At the foot of Tirumala hills near **Alipiri, Tirupati**. Features a **Swayambhu Lingam** and the sacred **Kapila Theertham waterfall**.  
+**[Sri Kapileswara Swamy Temple](/kapila-theertham-temple-sevas-timings-and-online-booking/)**|  At the foot of Tirumala hills near **Alipiri, Tirupati**. Features a **Swayambhu Lingam** and the sacred **Kapila Theertham waterfall**.  
 **Parasurameswara Swamy Temple**|  In **Gudimallam** , ~20 km from Tirupati. One of India’s oldest temples (2nd-3rd century BCE) with a unique early Lingam form.  
 **Pallikondeswara Temple**|  In **Surutupalle** , Tirupati district. Unique for its idol of Lord Shiva in a reclining posture on Goddess Parvati’s lap.  
 **11-Feet Shiva Lingam**|  Near Namuna Aalayam Temple on **Zoo Park Bypass Road, Tirupati**. Notable for its large size.  
   
 ### **Primary Shiva Temple in the Region**
 
-The **[Sri Kapileswara Swamy Temple](/blog/kapila-theertham-temple-sevas-timings-and-online-booking/)** is the foremost and most significant Shiva temple in the Tirumala-Tirupati area. Managed by TTD, this ancient temple is built at the entrance of a mountain cave and is the main center for Shaivite worship. It attracts thousands of devotees during Maha Shivaratri and the holy month of Karthika Masam.
+The **[Sri Kapileswara Swamy Temple](/kapila-theertham-temple-sevas-timings-and-online-booking/)** is the foremost and most significant Shiva temple in the Tirumala-Tirupati area. Managed by TTD, this ancient temple is built at the entrance of a mountain cave and is the main center for Shaivite worship. It attracts thousands of devotees during Maha Shivaratri and the holy month of Karthika Masam.
 
 ### **Fasting, Rituals & Celebration**
 

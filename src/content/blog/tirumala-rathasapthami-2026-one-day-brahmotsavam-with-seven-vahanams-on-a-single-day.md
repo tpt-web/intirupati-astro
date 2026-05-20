@@ -8,7 +8,7 @@ heroImage: '/images/2026/01/Tirumala-Rathasapthami-2026.webp'
 
 Tirumala **Rathasapthami 2026, on Sunday, January 25th, marks Surya Bhagavan turning his chariot northward and is celebrated as his birthday, Surya Jayanti. At Tirumala, this manifests as a spectacular one-day Brahmotsavam where Lord Malayappa Swamy blesses devotees from seven sacred vehicles.**
 
-This unique festival is a condensed yet profoundly grand spiritual spectacle. For a broader understanding of how such special days fit into the annual calendar of events, you can explore the **[Tirumala Annual& Periodical Sevas](/blog/arjitha-sevas-types-booking-reporting-timing-rules-dress-code/)** on our comprehensive guide at **[intirupati.in](/)**.
+This unique festival is a condensed yet profoundly grand spiritual spectacle. For a broader understanding of how such special days fit into the annual calendar of events, you can explore the **[Tirumala Annual& Periodical Sevas](/arjitha-sevas-types-booking-reporting-timing-rules-dress-code/)** on our comprehensive guide at **[intirupati.in](/)**.
 
 ### The Divine Schedule: Seven Vahanams in One Day (Tirumala Rathasapthami)
 
@@ -35,7 +35,7 @@ To facilitate this grand festival, TTD has announced several important changes f
 
   * **Cancelled Sevas:** The following **Arjitha Sevas** will not be performed: 
     * Ashtadala Pada Padmaradhana
-    * Kalyanotsavam (Learn about regular booking procedures in our **[Kalyanotsavam Seva Booking](/blog/tirumala-kalyanotsavam-seva-booking-guide-timings-tickets-darshan-cost/) Guide** on [intirupati.in](/))
+    * Kalyanotsavam (Learn about regular booking procedures in our **[Kalyanotsavam Seva Booking](/tirumala-kalyanotsavam-seva-booking-guide-timings-tickets-darshan-cost/) Guide** on [intirupati.in](/))
     * Unjal Seva
     * Arjita Brahmotsavam
     * Sahasra Deepalankara Seva
@@ -52,8 +52,8 @@ Witnessing the Rathasapthami Brahmotsavam is a once-in-a-lifetime experience. Gi
 
 For a smooth pilgrimage, utilize our detailed resources on **[intirupati.in](/)** :
 
-  * Use the **[TTD Online Booking Guide](/blog/ttd-online-booking-guide-darshan-sevas-rooms-accommodation/)** to understand the official system for other sevas and accommodations.
-  * Check the **[Tirumala Darshan Crowd Status Today](/blog/tirumala-tirupati-darshan-crowd-status-today-waiting-time-live/)** feature to gauge general waiting times.
-  * Read our complete guide on **[How to Book Tirumala Rs 300 Darshan Tickets](/blog/how-to-book-tirumala-rs-300-darshan-tickets-complete-guide-latest/)** for affordable entry options on regular days.
+  * Use the **[TTD Online Booking Guide](/ttd-online-booking-guide-darshan-sevas-rooms-accommodation/)** to understand the official system for other sevas and accommodations.
+  * Check the **[Tirumala Darshan Crowd Status Today](/tirumala-tirupati-darshan-crowd-status-today-waiting-time-live/)** feature to gauge general waiting times.
+  * Read our complete guide on **[How to Book Tirumala Rs 300 Darshan Tickets](/how-to-book-tirumala-rs-300-darshan-tickets-complete-guide-latest/)** for affordable entry options on regular days.
 
 May your visit to the sacred Rathasapthami celebrations be filled with divine blessings and grace.

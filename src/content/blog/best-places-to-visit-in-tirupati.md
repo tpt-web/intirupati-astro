@@ -8,25 +8,25 @@ heroImage: '/images/2026/02/Best-Places-to-Visit-in-Tirupati.webp'
 
 Tirupati, the spiritual hub of Andhra Pradesh, is world-famous for the **Sri Venkateswara Temple** in Tirumala, but the city and surroundings offer a mix of divine sites, nature, history, and wildlife. Whether you’re on a short pilgrimage from Nellore or planning a longer stay, here are the **best places to visit in Tirupati** (including Tirumala and nearby areas) for a fulfilling trip in 2026.
 
-### 1\. [Sri Venkateswara Temple, Tirumala](/blog/list-of-ttd-temples-timings-open-closes-location/) (The Must-Visit)
+### 1\. [Sri Venkateswara Temple, Tirumala](/list-of-ttd-temples-timings-open-closes-location/) (The Must-Visit)
 
 The crown jewel — darshan of Lord Balaji. Plan for slotted Sarva Darshan or book Rs. 300 Special Entry in advance via ttdevasthanams.ap.gov.in. Combine with nearby spots like Papavinasanam Dam, Akasa Ganga, or Swami Pushkarini.
 
 **Tip** : Reach early for shorter queues; tonsure (Kalyana Katta) and laddu prasadam are iconic.
 
-### 2\. Sri [Padmavathi Ammavari](/blog/sri-padmavathi-ammavari-temple-tiruchanur/) Temple, Tiruchanur
+### 2\. Sri [Padmavathi Ammavari](/sri-padmavathi-ammavari-temple-tiruchanur/) Temple, Tiruchanur
 
 Dedicated to Goddess Padmavathi (consort of Lord Venkateswara). Many devotees visit here first or last. Special Entry Rs. 200; book online. Serene atmosphere with beautiful lotus pond and Kumkum Archana for marital blessings.
 
 **Distance** : ~5 km from Tirupati town.
 
-### 3\. [Sri Govindaraja Swamy Temple](/blog/sri-govindaraja-swamy-temple-tirupati-history-timings-sevas-how-to-reach/)
+### 3\. [Sri Govindaraja Swamy Temple](/sri-govindaraja-swamy-temple-tirupati-history-timings-sevas-how-to-reach/)
 
 Ancient temple in Tirupati town dedicated to Lord Vishnu (brother of Venkateswara). Features stunning architecture, daily sevas, and peaceful vibes. Free darshan; less crowded than Tirumala.
 
 **Location** : Heart of Tirupati; easy walk from bus stand.
 
-### 4\. [Sri Kapileswara Swamy Temple (Kapila Theertham)](/blog/kapila-theertham-temple-sevas-timings-and-online-booking/)
+### 4\. [Sri Kapileswara Swamy Temple (Kapila Theertham)](/kapila-theertham-temple-sevas-timings-and-online-booking/)
 
 One of the 108 sacred Shiva temples; waterfall (Kapila Theertham) flows directly into the shrine. Sacred bath in the falls is highly auspicious. Best early morning.
 
@@ -50,7 +50,7 @@ Highest waterfall in Andhra Pradesh (270 ft) inside Sri Venkateswara National Pa
 
 **Distance** : ~60 km from Tirupati; hire cab or join tour.
 
-### 8\. [Sri Kalahasti Temple](/blog/sri-kalahasti-temple-complete-guide-2026/)
+### 8\. [Sri Kalahasti Temple](/sri-kalahasti-temple-complete-guide-2026/)
 
 Famous Shiva temple for Rahu-Ketu Pooja (Dosha Nivaran). Ancient architecture and powerful rituals. Combine with Tirupati visit.
 

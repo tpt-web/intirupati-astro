@@ -45,9 +45,9 @@ Witnessing the Parveta festival is a rare opportunity to see a different, more p
 
 To ensure the rest of your trip is seamless, you can plan other aspects of your visit using the guides on our website, **[intirupati.in](/)**.
 
-  * **Secure Your Stay:** Find comfortable accommodation by exploring our guides for TTD guest houses like **Sri[Padmavathi Guest House](/blog/sri-padmavathi-guest-house-tirumala/)** or **[Vishnu Nivasam](/blog/vishnu-nivasam-accommodation-room-booking-prices-complete-details/)**.
+  * **Secure Your Stay:** Find comfortable accommodation by exploring our guides for TTD guest houses like **Sri[Padmavathi Guest House](/sri-padmavathi-guest-house-tirumala/)** or **[Vishnu Nivasam](/vishnu-nivasam-accommodation-room-booking-prices-complete-details/)**.
   * **Understand Regular Sevas:** Learn about the significance and booking procedures for the regular **Arjitha Sevas** that will resume after the festival, with our detailed guide on **[intirupati.in](/)**.
-  * **General Pilgrimage Guide:** For a complete overview of online booking, darshan tips, and temple history, refer to our main **[TTD Online Booking Guide](/blog/how-to-book-room-in-tirumala-online-offline-quick-easy-guide/)**.
+  * **General Pilgrimage Guide:** For a complete overview of online booking, darshan tips, and temple history, refer to our main **[TTD Online Booking Guide](/how-to-book-room-in-tirumala-online-offline-quick-easy-guide/)**.
 
 May your visit during this auspicious festival be filled with divine joy and blessings.
 

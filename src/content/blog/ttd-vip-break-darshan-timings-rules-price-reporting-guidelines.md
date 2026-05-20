@@ -28,7 +28,7 @@ Adhering to the schedule and rules is mandatory for a successful darshan.
        * Jeans, shorts, T-shirts, and sleeveless tops are **not allowed**.
     3. **At the Temple:** Report to **Vaikuntham Queue Complex – I** (as per your ticket), deposit mobile phones where instructed, and follow all queue discipline and staff guidance. Photography is prohibited.
 
-#### **[How to Book VIP Break Darshan](/blog/how-to-book-vip-darshan-ttd-srivani-trust-donations-e-donations-slabs-benefits-details/): The Srivani Trust Route**
+#### **[How to Book VIP Break Darshan](/how-to-book-vip-darshan-ttd-srivani-trust-donations-e-donations-slabs-benefits-details/): The Srivani Trust Route**
 
 The most transparent and official method to secure VIP Break Darshan tickets is through the **TTD’s Srivani Trust**.
 
@@ -37,7 +37,7 @@ The most transparent and official method to secure VIP Break Darshan tickets is 
 
 For More Info about How to Book Vip break Darshan check here 
 
-> [How to Book VIP Darshan TTD Srivani Trust Donations & E-Donations Slabs & Benefits Details](/blog/how-to-book-vip-darshan-ttd-srivani-trust-donations-e-donations-slabs-benefits-details/)
+> [How to Book VIP Darshan TTD Srivani Trust Donations & E-Donations Slabs & Benefits Details](/how-to-book-vip-darshan-ttd-srivani-trust-donations-e-donations-slabs-benefits-details/)
 
 #### **Common Mistakes to Avoid**
 

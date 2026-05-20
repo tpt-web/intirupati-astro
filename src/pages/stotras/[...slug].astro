@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import { postCanonicalURL } from '../../lib/postUrls';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('stotras');
@@ -22,6 +23,6 @@ const adSlots = [
 ];
 ---
 
-<BlogPost {...post.data} adSlots={adSlots}>
+<BlogPost {...post.data} adSlots={adSlots} canonicalURL={postCanonicalURL(post, Astro.site)}>
 	<Content />
 </BlogPost>

@@ -34,7 +34,7 @@ This is the most popular ticket for quick darshan.
 
 Report 30 minutes early at ATC Parking. Wear traditional clothes.
 
-**Tip:** Quotas finish fast – login at opening time (like 10 AM or 3 PM). For more on darshan: Check our [Suprabhata Seva guide](/blog/suprabhatam-seva-at-tirumala-guide-to-book-your-tickets-now/)
+**Tip:** Quotas finish fast – login at opening time (like 10 AM or 3 PM). For more on darshan: Check our [Suprabhata Seva guide](/suprabhatam-seva-at-tirumala-guide-to-book-your-tickets-now/)
 
 ### [TTD Accommodation Online Booking](https://intirupati.in/category/tirupati/accommodations/) (Rooms in Tirumala & Tirupati)
 
@@ -62,11 +62,11 @@ Sevas give close darshan and special blessings.
 
 **Popular sevas & approx prices:**
 
-  * [Kalyanotsavam](/blog/tirumala-kalyanotsavam-seva-booking-guide-timings-tickets-darshan-cost/): ₹1,200
+  * [Kalyanotsavam](/tirumala-kalyanotsavam-seva-booking-guide-timings-tickets-darshan-cost/): ₹1,200
   * Sahasra Kalasabhishekam: ₹1,200
   * Vasanthotsavam: ₹500
-  * [Suprabhata Seva](/blog/suprabhatam-seva-at-tirumala-guide-to-book-your-tickets-now/): ₹120 (mostly lucky dip / e-DIP)
-  * **[Arjitha](/blog/arjitha-sevas-types-booking-reporting-timing-rules-dress-code/)** Brahmotsavam: ₹5,000+
+  * [Suprabhata Seva](/suprabhatam-seva-at-tirumala-guide-to-book-your-tickets-now/): ₹120 (mostly lucky dip / e-DIP)
+  * **[Arjitha](/arjitha-sevas-types-booking-reporting-timing-rules-dress-code/)** Brahmotsavam: ₹5,000+
 
 **Rules:**
 

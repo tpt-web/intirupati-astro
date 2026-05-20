@@ -9,7 +9,12 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://intirupati.in',
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    mdx(),
+    sitemap({
+      filter: (page) => !page.includes('/blog/') && !page.includes('/stotras/'),
+    }),
+  ],
 
   fonts: [
       {

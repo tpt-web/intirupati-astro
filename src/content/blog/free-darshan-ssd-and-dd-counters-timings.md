@@ -23,8 +23,8 @@ Feature| **Slotted Sarva Darshan (SSD)**| **Divya Darshan (DD)**
 SSD is the standard free darshan system designed to manage crowds with a time slot, significantly reducing wait times.
 
   * **Where to Get Tokens** : Tokens are issued **only offline** at specific TTD complexes in Tirupati: 
-    * **[Srinivasam Complex](/blog/srinivasam-complex-accommodation-prices-booking-complete-guide/)** (opposite the main bus stand)
-    * **[Vishnu Nivasam](/blog/vishnu-nivasam-accommodation-room-booking-prices-complete-details/)** (opposite the railway station)
+    * **[Srinivasam Complex](/srinivasam-complex-accommodation-prices-booking-complete-guide/)** (opposite the main bus stand)
+    * **[Vishnu Nivasam](/vishnu-nivasam-accommodation-room-booking-prices-complete-details/)** (opposite the railway station)
     * **Govindaraja Swamy Choultry** (behind the railway station)
   * **Process & Timings**: Tokens are issued on a **first-come, first-served** basis until the daily quota (reportedly 10,000-15,000) is exhausted. Counter timings may start as early as **5:00 AM** for same-day darshan or around **9:00 AM** for next-day darshan. **Always arrive very early**.
   * **What You Need** : A physical **Aadhaar card** is mandatory for each adult. Children under 12 do not need a separate token.

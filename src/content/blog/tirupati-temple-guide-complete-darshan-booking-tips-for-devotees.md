@@ -14,11 +14,11 @@ Known as “Bhuloka Vaikuntam” (Heaven on Earth), the temple is one of the ric
 ### Types of Darshan Available
 
   * **Sarva Darshan (Free)** : Open to all; waiting time 5–12+ hours (slotted system in 2026).
-  * **[Special Entry Darshan (SED – Rs. 300)](/blog/tirumala-free-darshan-ssd-token-guide-live-crowd-status-waiting-times/)** : Faster queue (2–4 hours); advance online booking monthly.
-  * **[VIP Break Darshan](/blog/how-to-book-srivani-darshan-tickets-online-offline/) / [Srivani Trust](/blog/how-to-book-vip-darshan-ttd-srivani-trust-donations-e-donations-slabs-benefits-details/)**: Rs. 10,000 donation + Rs. 500 ticket for priority access.
+  * **[Special Entry Darshan (SED – Rs. 300)](/tirumala-free-darshan-ssd-token-guide-live-crowd-status-waiting-times/)** : Faster queue (2–4 hours); advance online booking monthly.
+  * **[VIP Break Darshan](/how-to-book-srivani-darshan-tickets-online-offline/) / [Srivani Trust](/how-to-book-vip-darshan-ttd-srivani-trust-donations-e-donations-slabs-benefits-details/)**: Rs. 10,000 donation + Rs. 500 ticket for priority access.
   * **Divya Darshan** : For pedestrians climbing steps (free, token-based).
-  * **[Special for Seniors/Disabled](/blog/free-darshan-for-senior-citizens/)** : Priority queue with assistance.
-  * **[Arjitha Sevas](/blog/arjitha-sevas-types-booking-reporting-timing-rules-dress-code/)** : Paid rituals like [Suprabhatam](/blog/how-to-book-suprabhata-seva-in-tirumala-offline/), Thomala Seva (advance lucky dip/online).
+  * **[Special for Seniors/Disabled](/free-darshan-for-senior-citizens/)** : Priority queue with assistance.
+  * **[Arjitha Sevas](/arjitha-sevas-types-booking-reporting-timing-rules-dress-code/)** : Paid rituals like [Suprabhatam](/how-to-book-suprabhata-seva-in-tirumala-offline/), Thomala Seva (advance lucky dip/online).
 
 Book only via official TTD portal — avoid third parties!
 

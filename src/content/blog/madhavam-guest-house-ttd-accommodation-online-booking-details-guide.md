@@ -97,7 +97,7 @@ Download and print your booking receipt. You’ll need this document along with 
   * **Cancellation Policy:** Only base tariff refunded (GST not refunded)
   * **Caution Deposit:** Refunded to your account within 7-10 days after checkout
 
-[ Book Madhavam Guest House Online → ](https://ttdevasthanams.ap.gov.in/) [ View Complete TTD Booking Guide → ](/blog/ttd-online-booking-guide-darshan-sevas-rooms-accommodation/)
+[ Book Madhavam Guest House Online → ](https://ttdevasthanams.ap.gov.in/) [ View Complete TTD Booking Guide → ](/ttd-online-booking-guide-darshan-sevas-rooms-accommodation/)
 
 ## ⏰ Check-in & Check-out Procedure
 

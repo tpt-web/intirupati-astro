@@ -31,7 +31,7 @@ The ticket price is **Rs. 120 per person**. It’s low-cost and includes the div
 
 If selected, report at **VQC-I** by **2:00 AM** with ID. Dress code: traditional clothes.
 
-**Can We Book[Suprabhata Seva Online](/blog/suprabhatam-seva-at-tirumala-guide-to-book-your-tickets-now/)** Yes, mainly through TTD’s online lucky dip (electronic dip) on ttdevasthanams.ap.gov.in. It’s advance quota, opens monthly. Offline helps if you’re on spot and miss online.
+**Can We Book[Suprabhata Seva Online](/suprabhatam-seva-at-tirumala-guide-to-book-your-tickets-now/)** Yes, mainly through TTD’s online lucky dip (electronic dip) on ttdevasthanams.ap.gov.in. It’s advance quota, opens monthly. Offline helps if you’re on spot and miss online.
 
 **How to Apply for Suprabhata Seva** Apply via lucky dip (online on TTD site or offline at CRO). No direct paid booking – it’s luck-based due to high demand.
 

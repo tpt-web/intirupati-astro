@@ -40,7 +40,7 @@ Frequency| Day| Seva| Timings| Cost (Approx.)
   
 **Other Common Seva Cost:** Archana & Harathi: ₹ 5
 
-## [How to Book Sevas Online](/blog/ttd-online-booking-guide-darshan-sevas-rooms-accommodation/) Process
+## [How to Book Sevas Online](/ttd-online-booking-guide-darshan-sevas-rooms-accommodation/) Process
 
 All sevas must be booked in advance via the official TTD website.
 

@@ -24,7 +24,7 @@ You can reach Srivari Padalu via two routes starting from **Alipiri** :
   1. **Traditional Footpath (Srivari Mettu):** The direct, steep staircase route. The footprints are located along this path.
   2. **TTD Footpath (Alternative Staircase):** A parallel, well-maintained path built by TTD. You can take this path and cross over to see the Padalu.
 
-“Srivari Padalu” refers to the footpath treks (Alipiri & Srivari Mettu) to Tirumala, which don’t need advance paid tickets but require free Divya Darshan (SSD) tokens, available daily at specific locations (Bhudevi Complex, [Srinivasam](/blog/srinivasam-complex-accommodation-prices-booking-complete-guide/), [Vishnu Nivasam](/blog/vishnu-nivasam-accommodation-room-booking-prices-complete-details/)) on a first-come, first-served basis, with specific timings and step limits for each route, requiring Aadhaar and a photo capture for the tokens
+“Srivari Padalu” refers to the footpath treks (Alipiri & Srivari Mettu) to Tirumala, which don’t need advance paid tickets but require free Divya Darshan (SSD) tokens, available daily at specific locations (Bhudevi Complex, [Srinivasam](/srinivasam-complex-accommodation-prices-booking-complete-guide/), [Vishnu Nivasam](/vishnu-nivasam-accommodation-room-booking-prices-complete-details/)) on a first-come, first-served basis, with specific timings and step limits for each route, requiring Aadhaar and a photo capture for the tokens
 
 ### **🕒 Timings & Entry**
 

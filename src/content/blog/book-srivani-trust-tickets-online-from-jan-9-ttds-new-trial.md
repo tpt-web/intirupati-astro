@@ -31,13 +31,13 @@ Until now, Srivani tickets were issued mainly through manual or offline methods.
 **How to Book Online (Expected Steps):**
 
   1. Visit the official TTD website: **[ttd.seva.tirumala.org](https://ttd.seva.tirumala.org/)** or **[tirumala.org](https://tirumala.org/)**
-  2. Look for **“[Srivani Trust Online Booking](/blog/how-to-book-srivani-darshan-tickets-online-offline/)”** or “Current Booking”
+  2. Look for **“[Srivani Trust Online Booking](/how-to-book-srivani-darshan-tickets-online-offline/)”** or “Current Booking”
   3. Select your preferred darshan date
   4. Enter donor and pilgrim details
   5. Make payment online
   6. Download/save your e-receipt and ticket confirmation
 
-> [How to Book Srivani Darshan Tickets Online & Offline](/blog/how-to-book-srivani-darshan-tickets-online-offline/)
+> [How to Book Srivani Darshan Tickets Online & Offline](/how-to-book-srivani-darshan-tickets-online-offline/)
 
 **Important Information for Devotees:**
 

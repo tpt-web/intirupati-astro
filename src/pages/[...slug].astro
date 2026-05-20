@@ -1,0 +1,68 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BlogPost from '../layouts/BlogPost.astro';
+import { getRelatedBlogLinks } from '../lib/relatedPosts';
+import { postCanonicalURL } from '../lib/postUrls';
+
+type BlogPostEntry = CollectionEntry<'blog'>;
+type StotraPostEntry = CollectionEntry<'stotras'>;
+type Props =
+	| { post: BlogPostEntry; collection: 'blog' }
+	| { post: StotraPostEntry; collection: 'stotras' };
+
+export async function getStaticPaths() {
+	const reservedSlugs = new Set([
+		'about',
+		'blog',
+		'category',
+		'contact-us',
+		'disclaimer',
+		'privacy-policy',
+		'rss.xml',
+		'sitemap_index.xml',
+		'stotras',
+		'terms-and-conditions',
+		'tools',
+	]);
+	const blogPosts = await getCollection('blog');
+	const stotraPosts = await getCollection('stotras');
+
+	return [
+		...blogPosts
+			.filter((post) => !reservedSlugs.has(post.id))
+			.map((post) => ({
+				params: { slug: post.id },
+				props: { post, collection: 'blog' },
+			})),
+		...stotraPosts
+			.filter((post) => !reservedSlugs.has(post.id))
+			.map((post) => ({
+				params: { slug: post.id },
+				props: { post, collection: 'stotras' },
+			})),
+	];
+}
+
+const { post, collection } = Astro.props as Props;
+const { Content } = await render(post);
+
+const allPosts = await getCollection('blog');
+const allTools = await getCollection('tools');
+const relatedLinks =
+	collection === 'blog' ? getRelatedBlogLinks(post, allPosts, allTools) : [];
+
+const adSlots = [
+	{ slot: '7608753970', label: 'Sponsored Advertisement' },
+	{ slot: '1924008995', label: 'Sponsored Advertisement' },
+	{ slot: '4981061956', label: 'Sponsored Advertisement' },
+];
+---
+
+<BlogPost
+	{...post.data}
+	relatedLinks={relatedLinks}
+	adSlots={adSlots}
+	canonicalURL={postCanonicalURL(post, Astro.site)}
+>
+	<Content />
+</BlogPost>

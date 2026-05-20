@@ -47,9 +47,9 @@ Witnessing Rathasapthami is a rare and blessed experience. If you are planning a
 
 To make your overall trip smooth, you can plan other essential aspects of your visit using the comprehensive guides available on our website, **[intirupati.in](/)**.
 
-  * **Ensure Smooth Darshan:** Learn the easiest ways to book your pilgrimage with our **[TTD Online Booking Guide](/blog/ttd-online-booking-guide-darshan-sevas-rooms-accommodation/)** for Darshan, Sevas, and Accommodation.
-  * **Find Sacred Stay:** Secure a comfortable and devotee-friendly place to stay by exploring our detailed guides for TTD accommodations like **[Sri Padmavathi Guest House](/blog/sri-padmavathi-guest-house-tirumala/)** , **[Srinivasam Complex](/blog/srinivasam-complex-accommodation-prices-booking-complete-guide/)** , and **[Vishnu Nivasam](/blog/vishnu-nivasam-accommodation-room-booking-prices-complete-details/)**.
-  * **Understand Temple Traditions:** Deepen your experience by reading about the sacred **[History of Tirumala Tirupati](/blog/the-sacred-history-of-tirumala-tirupati-%F0%9F%99%8F-om-namo-venkatesaya-%F0%9F%99%8F/)** and the significance of various **[Arjitha Sevas](/blog/arjitha-sevas-types-booking-reporting-timing-rules-dress-code/)**.
+  * **Ensure Smooth Darshan:** Learn the easiest ways to book your pilgrimage with our **[TTD Online Booking Guide](/ttd-online-booking-guide-darshan-sevas-rooms-accommodation/)** for Darshan, Sevas, and Accommodation.
+  * **Find Sacred Stay:** Secure a comfortable and devotee-friendly place to stay by exploring our detailed guides for TTD accommodations like **[Sri Padmavathi Guest House](/sri-padmavathi-guest-house-tirumala/)** , **[Srinivasam Complex](/srinivasam-complex-accommodation-prices-booking-complete-guide/)** , and **[Vishnu Nivasam](/vishnu-nivasam-accommodation-room-booking-prices-complete-details/)**.
+  * **Understand Temple Traditions:** Deepen your experience by reading about the sacred **[History of Tirumala Tirupati](/the-sacred-history-of-tirumala-tirupati-%F0%9F%99%8F-om-namo-venkatesaya-%F0%9F%99%8F/)** and the significance of various **[Arjitha Sevas](/arjitha-sevas-types-booking-reporting-timing-rules-dress-code/)**.
 
 May your visit to the Rathasapthami celebrations be filled with divine grace and blessings.
 

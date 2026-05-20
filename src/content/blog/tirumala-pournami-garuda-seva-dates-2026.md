@@ -64,7 +64,7 @@ May 2026 is special with two full moon days – on the 1st and 31st. This means 
 Witnessing the Pournami Garuda Seva doesn’t require any special booking or tickets. Here’s how you can experience it:
 
   1. **Plan Your Visit:** Choose a Pournami date from the calendar above and plan your Tirumala trip accordingly.
-  2. **Complete Your Darshan:** Book and complete your regular darshan during the day ([Special Entry Darshan](/blog/how-to-book-vip-darshan-ttd-srivani-trust-donations-e-donations-slabs-benefits-details/) or [Sarva Darshan](/blog/daily-sevas-tirumala-balaji-sevas-complete-guide/)).
+  2. **Complete Your Darshan:** Book and complete your regular darshan during the day ([Special Entry Darshan](/how-to-book-vip-darshan-ttd-srivani-trust-donations-e-donations-slabs-benefits-details/) or [Sarva Darshan](/daily-sevas-tirumala-balaji-sevas-complete-guide/)).
   3. **Arrive Early:** Reach the Mada street galleries by 6:00 PM to secure a good viewing spot.
   4. **Enter the Galleries:** Devotees can enter the viewing galleries along the four Mada streets surrounding the main temple.
   5. **Witness the Procession:** The Lord’s procession begins at 7:00 PM and continues until 9:00 PM.

@@ -36,7 +36,7 @@ The Agama recommends six pujas each day, each serving a spiritual and social pur
 
 Below sevas comes under Arjtha Seva. Click below Sevas to get More Details.
 
-[Daliy Sevas](/blog/daily-sevas-tirumala-balaji-sevas-complete-guide/) [Weekly Sevas](/blog/tirumala-weekly-sevas-details-timings-booking/) [Periodical / Yearly Sevas](/blog/tirumala-annual-periodical-sevas-details-timings-booking/)
+[Daliy Sevas](/daily-sevas-tirumala-balaji-sevas-complete-guide/) [Weekly Sevas](/tirumala-weekly-sevas-details-timings-booking/) [Periodical / Yearly Sevas](/tirumala-annual-periodical-sevas-details-timings-booking/)
 
 ## Present Puja System at Tirumala
 

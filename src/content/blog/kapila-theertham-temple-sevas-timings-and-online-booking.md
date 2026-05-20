@@ -66,7 +66,7 @@ Sanitrayodasi (Periodical)| Abhishekam to Navagraha| Rs. 100.00 (for 2 persons)
   * Dress code is modest and conservative as per traditional temple customs.
   * The sacred waterfall (“theertham”) is a major highlight; visitors can often take a holy dip or collect the water.
 
-Check [Sri Kapileswara Swamy Brahmotsavams 2026 – Vahana Sevas Full Schedule](/blog/sri-kapileswara-swamy-brahmotsavams-2026-vahana-sevas/)
+Check [Sri Kapileswara Swamy Brahmotsavams 2026 – Vahana Sevas Full Schedule](/sri-kapileswara-swamy-brahmotsavams-2026-vahana-sevas/)
 
 ## Frequently Asked Questions (FAQ)
 

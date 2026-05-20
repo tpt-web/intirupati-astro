@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import FormattedDate from './FormattedDate.astro';
+import { blogPath } from '../lib/postUrls';
 
 interface Props {
   posts: CollectionEntry<'blog'>[];
@@ -44,7 +45,7 @@ const { posts } = Astro.props;
           </span>
           
           <h3 class="text-lg font-bold leading-snug">
-            <a href={`/blog/${post.id}/`} class="text-slate-900 hover:text-amber-700 transition-colors">{post.data.title}</a>
+            <a href={blogPath(post)} class="text-slate-900 hover:text-amber-700 transition-colors">{post.data.title}</a>
           </h3>
           
           {post.data.description && (
@@ -57,7 +58,7 @@ const { posts } = Astro.props;
       
       <div class="border-t border-slate-100 p-6 pt-4 bg-slate-50/50">
         <a 
-          href={`/blog/${post.id}/`} 
+          href={blogPath(post)} 
           class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors uppercase tracking-wider"
         >
           Read Full Guide

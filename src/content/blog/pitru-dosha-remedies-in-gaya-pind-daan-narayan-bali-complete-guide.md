@@ -13,7 +13,7 @@ Pitru Dosha arises from improper last rites, unnatural deaths, or unfulfilled an
 
 ### Main Remedies for Pitru Dosha in Gaya
 
-The most potent remedies focus on **Pind Daan** , **Tarpan** , **[Narayan Bali](/blog/narayan-bali-puja-in-gokarna/)** , and **Tripindi Shraddh** :
+The most potent remedies focus on **Pind Daan** , **Tarpan** , **[Narayan Bali](/narayan-bali-puja-in-gokarna/)** , and **Tripindi Shraddh** :
 
   * **Pind Daan** : Offering rice balls (pindas) mixed with sesame, ghee, etc., to satisfy ancestors.
   * **Tarpan** : Offering water with black sesame seeds, barley, and flowers.

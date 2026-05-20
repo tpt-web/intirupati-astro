@@ -20,24 +20,24 @@ The Tirumala Tirupati Temple, home to Lord Venkateswara, offers various daily se
 
 S.No | Seva Name | Seva Days | Reporting Time | Seva Start Time  
 ---|---|---|---|---  
-1 | [ Suprabhatha Seva](/blog/suprabhatam-seva-at-tirumala-guide-to-book-your-tickets-now/) | Daily | 2:30 AM | 3:00 AM  
-2 | [Thomala Seva](/blog/thomala-seva-at-tirumala-complete-details-booking-time-price-faq/) | Tue-Wed-Thu | 3:00 AM | 3:30 AM  
-3 | [Archana ](/blog/archana-seva-in-tirumala-booking-timings-price-tickets-info-guide/) | Tue-Wed-Thu | 4:00 AM | 4:30 AM  
-4 | [Kalyanotsavam](/blog/tirumala-kalyanotsavam-seva-booking-guide-timings-tickets-darshan-cost/) | Daily | 10:00 AM | 12:00 PM  
+1 | [ Suprabhatha Seva](/suprabhatam-seva-at-tirumala-guide-to-book-your-tickets-now/) | Daily | 2:30 AM | 3:00 AM  
+2 | [Thomala Seva](/thomala-seva-at-tirumala-complete-details-booking-time-price-faq/) | Tue-Wed-Thu | 3:00 AM | 3:30 AM  
+3 | [Archana ](/archana-seva-in-tirumala-booking-timings-price-tickets-info-guide/) | Tue-Wed-Thu | 4:00 AM | 4:30 AM  
+4 | [Kalyanotsavam](/tirumala-kalyanotsavam-seva-booking-guide-timings-tickets-darshan-cost/) | Daily | 10:00 AM | 12:00 PM  
 5 | Arjitha Brahmotsavam | Daily | 12:30 PM | 2:00 PM  
 6 | Dolotsavam (Unjal Seva) | Daily | 11:00 AM | 1:00 PM  
 7 | Sahasra Deepalankara Seva | Daily | 5:00 PM | 5:30 PM  
 8 | Ekanta Seva | Daily | — | 1:30 hrs  
   
-## 🌅 [ Suprabhatam Seva](/blog/suprabhatam-seva-at-tirumala-guide-to-book-your-tickets-now/)
+## 🌅 [ Suprabhatam Seva](/suprabhatam-seva-at-tirumala-guide-to-book-your-tickets-now/)
 
 The Suprabhatam is the first and most sacred pre-dawn seva performed to wake up Lord Venkateswara from His celestial sleep. This divine ritual takes place at the Sayana Mandapam inside the sanctum sanctorum, accompanied by rhythmic Vedic hymns and the melodious songs of Tallapaka Annamacharya.
 
-## 🌸 [ Thomala Seva](/blog/thomala-seva-at-tirumala-complete-details-booking-time-price-faq/)
+## 🌸 [ Thomala Seva](/thomala-seva-at-tirumala-complete-details-booking-time-price-faq/)
 
 Thomala means “garland of flowers.” In this exquisite seva, Lord Venkateswara is adorned with various types of flowers by the Pradhana Archaka. The Lord is beautifully decorated with specially crafted floral garlands, each piece designed for specific areas to enhance the Divine beauty.
 
-## 📿[ Archana (Sahasranamarchana)](/blog/archana-seva-in-tirumala-booking-timings-price-tickets-info-guide/)
+## 📿[ Archana (Sahasranamarchana)](/archana-seva-in-tirumala-booking-timings-price-tickets-info-guide/)
 
 Archana involves the recitation of 1,008 glorious names of Lord Venkateswara. This powerful seva invokes divine blessings for the prosperity of humanity. A unique feature is that the Lord’s blessings are invoked in the names and gotras of participating devotees.
 
@@ -53,7 +53,7 @@ Dolotsavam, also known as Unjal Seva, features the Lord being gently swung on a 
 
 Sri Malayappa Swami along with Sridevi and Bhudevi are seated on an ornate swing. As the swing moves gently back and forth, devotees witness the Lord in a relaxed, joyful mood while priests chant mantras and sing Annamacharya kirtanas..
 
-## 💑[ Kalyanotsavam Seva](/blog/tirumala-kalyanotsavam-seva-booking-guide-timings-tickets-darshan-cost/)
+## 💑[ Kalyanotsavam Seva](/tirumala-kalyanotsavam-seva-booking-guide-timings-tickets-darshan-cost/)
 
 Kalyanotsavam is one of the most unique daily sevas where couples can witness and participate in the divine wedding ceremony of Lord Venkateswara with Goddess Lakshmi and Goddess Padmavathi. This hour-long celestial marriage ritual is performed according to Vaikhanasa Agama Shastra.
 

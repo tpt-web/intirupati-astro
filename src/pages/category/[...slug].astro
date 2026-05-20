@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import ArchivePage from '../../layouts/ArchivePage.astro';
+import { archiveDefinitions, archiveMatches } from '../../lib/archives';
+
+export async function getStaticPaths() {
+	return archiveDefinitions
+		.filter((definition) => definition.kind === 'category')
+		.map((definition) => ({
+			params: { slug: definition.slug },
+			props: definition,
+		}));
+}
+
+const definition = Astro.props;
+const posts = (await getCollection('blog'))
+	.filter((post) => archiveMatches(definition, post))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<ArchivePage title={definition.title} description={definition.description} posts={posts} />

@@ -22,7 +22,7 @@ Ticket Type| Cost (Per Person)| Key Feature| Booking Difficulty
   
 ### **1\. ₹300 Special Entry Darshan (SED / Seeghra Darshan)**
 
-The **[₹300 Tirumala darshan](/blog/how-to-book-tirumala-rs-300-darshan-tickets-complete-guide-latest/) ticket** is the most sought-after option for faster pilgrimage.
+The **[₹300 Tirumala darshan](/how-to-book-tirumala-rs-300-darshan-tickets-complete-guide-latest/) ticket** is the most sought-after option for faster pilgrimage.
 
   * **What it is:** Known as  _Seeghra Darshan_ or Special Entry Darshan (SED), it provides a significantly quicker route to the sanctum compared to the free darshan queue.
   * **Perks:** The ticket famously includes **2 free Tirupati Laddu** prasadam.
@@ -33,15 +33,15 @@ The **[₹300 Tirumala darshan](/blog/how-to-book-tirumala-rs-300-darshan-ticket
 
 This **₹500 darshan ticket** is not a standalone darshan ticket but is tied to participation in specific rituals.
 
-  * **What it is:** Your ₹500 secures a spot in a  _special seva_ like **Padmavathi Parinayam** or **[Suprabhatham](/blog/suprabhatam-seva-at-tirumala-guide-to-book-your-tickets-now/)Seva**, which also includes darshan.
+  * **What it is:** Your ₹500 secures a spot in a  _special seva_ like **Padmavathi Parinayam** or **[Suprabhatham](/suprabhatam-seva-at-tirumala-guide-to-book-your-tickets-now/)Seva**, which also includes darshan.
   * **Rules are Strict:** You **must** bring **original ID proof** (Aadhar, Voter ID, etc.) and adhere to the **traditional dress code**. Failure to do so will result in denied entry.
   * **How to Book:** Check the official TTD calendar for seva schedules and book accordingly on their website or app.
 
 ### **3\. ₹10,000 Srivani Trust VIP Darshan Ticket**
 
-For a premium and time-efficient experience, the **₹10,000[VIP darshan](/blog/ttd-vip-break-darshan-timings-rules-price-reporting-guidelines/) ticket** is an option.
+For a premium and time-efficient experience, the **₹10,000[VIP darshan](/ttd-vip-break-darshan-timings-rules-price-reporting-guidelines/) ticket** is an option.
 
-  * **What it is:** A **donation of ₹10,000 per person** to the Srivani Trust entitles you to one **[VIP Break Darshan](/blog/how-to-book-vip-darshan-ttd-srivani-trust-donations-e-donations-slabs-benefits-details/)** ticket, offering the fastest access.
+  * **What it is:** A **donation of ₹10,000 per person** to the Srivani Trust entitles you to one **[VIP Break Darshan](/how-to-book-vip-darshan-ttd-srivani-trust-donations-e-donations-slabs-benefits-details/)** ticket, offering the fastest access.
   * **Includes:** Along with VIP darshan, you receive a recommendation letter for TTD accommodation (subject to availability).
   * **New 2026 Booking Rule:** **800 of these tickets are now released daily for _online current booking_ at 9:00 AM sharp.** This is a major shift—plan to be online at that exact time on your chosen date.
 

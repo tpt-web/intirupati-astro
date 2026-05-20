@@ -15,9 +15,8 @@ interface Props {
 	ogType?: 'website' | 'article';
 	pubDate?: Date;
 	updatedDate?: Date;
+	canonicalURL?: string;
 }
-
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const {
 	title = SITE_TITLE,
@@ -25,6 +24,7 @@ const {
 	ogType = 'website',
 	pubDate,
 	updatedDate,
+	canonicalURL = new URL(Astro.url.pathname, Astro.site).toString(),
 } = Astro.props;
 const image = Astro.props.image || FallbackImage;
 const imageSrc = typeof image === 'string' ? image : image.src;
@@ -65,13 +65,13 @@ const imageHeight = typeof image === 'string' ? undefined : image.height;
 <SEO
 	title={title}
 	description={description}
-	canonical={canonicalURL.toString()}
+	canonical={canonicalURL}
 	openGraph={{
 		basic: {
 			title: title,
 			type: ogType,
 			image: imageURL,
-			url: canonicalURL.toString(),
+			url: canonicalURL,
 		},
 		optional: {
 			description: description,

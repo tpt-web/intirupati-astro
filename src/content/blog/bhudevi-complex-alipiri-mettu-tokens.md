@@ -52,7 +52,7 @@ To get accurate, real-time information, you must check the official sources on t
   * **Other Counters** : If the quota at Bhudevi is full, check other **free darshan token counters** in Tirupati like **Srinivasam** and **Vishnu Nivasam**.
   * **Plan Your Stay** : Since tokens are often for the next day’s darshan, plan your **Tirupati accommodation** accordingly. You can find a complete guide to **TTD guest houses like Sri Padmavathi Guest House and Srinivasam Complex** on our website, **[intirupati.in](/)**.
 
-> [Srivari Mettu : Full Guide to Timings, Entry Rules, Tokens and Luggage Facilities](/blog/srivari-mettu-full-guide-to-timings-entry-rules-tokens-and-luggage-facilities/)
+> [Srivari Mettu : Full Guide to Timings, Entry Rules, Tokens and Luggage Facilities](/srivari-mettu-full-guide-to-timings-entry-rules-tokens-and-luggage-facilities/)
 
 ### ❓ Frequently Asked Questions (FAQ)
 

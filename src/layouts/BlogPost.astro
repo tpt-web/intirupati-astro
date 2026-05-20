@@ -23,6 +23,7 @@ type AdSlot = {
 type Props = CollectionEntry<'blog'>['data'] & {
 	relatedLinks?: RelatedLink[];
 	adSlots?: AdSlot[];
+	canonicalURL?: string;
 };
 
 const {
@@ -33,6 +34,7 @@ const {
 	heroImage,
 	relatedLinks = [],
 	adSlots = [],
+	canonicalURL,
 } = Astro.props;
 ---
 
@@ -45,6 +47,7 @@ const {
 			ogType="article"
 			pubDate={pubDate}
 			updatedDate={updatedDate}
+			canonicalURL={canonicalURL}
 		/>
 		<style>
 			main {

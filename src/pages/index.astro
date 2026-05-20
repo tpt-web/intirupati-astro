@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BlogGrid from '../components/BlogGrid.astro';
 import ToolsSection from '../components/ToolsSection.astro';
+import AdSenseBlock from '../components/AdSenseBlock.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 // Get the latest 3 blog posts sorted by date
@@ -119,13 +120,9 @@ const posts = (await getCollection('blog'))
         </div>
       </section>
 
-      <!-- Adsense Placeholder Block 1 -->
+      <!-- Adsense Block 1 -->
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 my-8">
-        <div class="flex flex-col items-center justify-center bg-slate-100 border border-dashed border-slate-300 rounded-xl p-4 text-center min-h-[100px] md:min-h-[150px]">
-          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Sponsored Advertisement</span>
-          <div class="text-xs text-slate-500 font-mono">Google AdSense Responsive Unit [Top Leaderboard]</div>
-          <div class="text-[10px] text-slate-400 mt-0.5">Will display relevant travel ads based on devotee search intents</div>
-        </div>
+        <AdSenseBlock label="Sponsored Advertisement" />
       </div>
 
       <!-- Temple Guides Section -->
@@ -219,12 +216,9 @@ const posts = (await getCollection('blog'))
       <!-- Reusable Tools Section Component -->
       <ToolsSection />
 
-      <!-- Adsense Placeholder Block 2 -->
+      <!-- Adsense Block 2 -->
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 my-8">
-        <div class="flex flex-col items-center justify-center bg-slate-100 border border-dashed border-slate-300 rounded-xl p-4 text-center min-h-[100px]">
-          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Sponsored Advertisement</span>
-          <div class="text-xs text-slate-500 font-mono">Google AdSense Responsive Banner Unit [Middle Inline]</div>
-        </div>
+        <AdSenseBlock label="Sponsored Advertisement" />
       </div>
 
       <!-- Hotel Guides Section -->
@@ -364,13 +358,9 @@ const posts = (await getCollection('blog'))
         </div>
       </section>
 
-      <!-- Adsense Placeholder Block 3 -->
+      <!-- Adsense Block 3 -->
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 my-8">
-        <div class="flex flex-col items-center justify-center bg-slate-100 border border-dashed border-slate-300 rounded-xl p-4 text-center min-h-[100px] md:min-h-[150px]">
-          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Sponsored Advertisement</span>
-          <div class="text-xs text-slate-500 font-mono">Google AdSense Responsive Unit [Bottom Anchor]</div>
-          <div class="text-[10px] text-slate-400 mt-0.5">Contextual ads related to Tirupati darshan packages and flights</div>
-        </div>
+        <AdSenseBlock label="Sponsored Advertisement" />
       </div>
 
     </main>

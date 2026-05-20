@@ -1,0 +1,59 @@
+---
+interface Props {
+	slot?: string;
+	label?: string;
+}
+
+const { slot, label = 'Sponsored Advertisement' } = Astro.props;
+const adAttributes = {
+	class: 'adsbygoogle',
+	style: 'display:block',
+	'data-ad-client': 'ca-pub-5549925649870899',
+	'data-ad-format': 'auto',
+	'data-full-width-responsive': 'true',
+	...(slot ? { 'data-ad-slot': slot } : {}),
+};
+---
+
+<div class="adsense-block" aria-label={label}>
+	<span>{label}</span>
+	<ins {...adAttributes}></ins>
+</div>
+
+<script is:inline>
+	(window.adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<style>
+	.adsense-block {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 100px;
+		padding: 0.75rem;
+		overflow: hidden;
+		border: 1px solid #e2e8f0;
+		border-radius: 8px;
+		background: #f8fafc;
+	}
+
+	@media (min-width: 768px) {
+		.adsense-block {
+			min-height: 150px;
+		}
+	}
+
+	.adsense-block span {
+		margin-bottom: 0.35rem;
+		text-align: center;
+		font-size: 0.625rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: #94a3b8;
+	}
+
+	.adsense-block ins {
+		min-height: 90px;
+	}
+</style>

@@ -1,9 +1,9 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
-import Sanscript from '@indic-transliteration/sanscript';
 import BlogPost from '../../../layouts/BlogPost.astro';
 import StotraLanguageLinks from '../../../components/StotraLanguageLinks.astro';
 import TranslatedStotraContent from '../../../components/TranslatedStotraContent.astro';
+import { transliterateStotraText } from '../../../lib/transliterateStotra';
 import {
 	type StotraLanguage,
 	stotraBaseSlug,
@@ -40,16 +40,16 @@ const pageTitle = `${baseTitle} - ${language.label} Lyrics`;
 const pageDescription = `Read ${baseTitle} in ${language.label}. Stotra lyrics generated from the original Telugu stotra post with a dedicated ${language.label} URL for easy reading.`;
 const canonicalURL = new URL(stotraLanguagePath(post, language), Astro.site).toString();
 const isTelugu = language.slug === 'telugu';
-const translatedContent = isTelugu
-	? post.body
-	: Sanscript.t(post.body, 'telugu', language.scheme, {
-			syncope: language.slug === 'hindi' || language.slug === 'marathi' || language.slug === 'nepali',
-		});
+const displayTitle = isTelugu ? pageTitle : transliterateStotraText(`${baseTitle} - ${language.label} Lyrics`, language.scheme);
+const localizedSource = post.body
+	.replace(/\bTelugu\b/gi, language.label)
+	.replace(/తెలుగు/g, language.label)
+	.replace(/\bEnglish Meaning\b/gi, `${language.label} Meaning`);
 const structuredData = {
 	'@context': 'https://schema.org',
 	'@type': 'CreativeWork',
-	name: pageTitle,
-	headline: pageTitle,
+	name: displayTitle,
+	headline: displayTitle,
 	description: pageDescription,
 	url: canonicalURL,
 	inLanguage: language.locale,
@@ -71,12 +71,12 @@ const adSlots = [
 
 <BlogPost
 	{...post.data}
-	title={pageTitle}
+	title={displayTitle}
 	description={pageDescription}
 	adSlots={adSlots}
 	canonicalURL={canonicalURL}
 	structuredData={structuredData}
 >
-	<StotraLanguageLinks post={post} currentLanguage={language.slug} />
-	{isTelugu ? <Content /> : <TranslatedStotraContent content={translatedContent} />}
+	<StotraLanguageLinks post={post} currentLanguage={language.slug} labelTitle={displayTitle} />
+	{isTelugu ? <Content /> : <TranslatedStotraContent content={localizedSource} scheme={language.scheme} />}
 </BlogPost>

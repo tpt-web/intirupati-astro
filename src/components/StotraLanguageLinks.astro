@@ -5,12 +5,13 @@ import { stotraLanguagePath, stotraLanguages } from '../lib/stotraLanguages';
 interface Props {
 	post: CollectionEntry<'stotras'>;
 	currentLanguage?: string;
+	labelTitle?: string;
 }
 
-const { post, currentLanguage } = Astro.props;
+const { post, currentLanguage, labelTitle = post.data.title } = Astro.props;
 ---
 
-<nav class="stotra-language-links" aria-label={`${post.data.title} language versions`}>
+<nav class="stotra-language-links" aria-label={`${labelTitle} language versions`}>
 	<span>Read in:</span>
 	{stotraLanguages.map((language) => (
 		<a
@@ -49,4 +50,3 @@ const { post, currentLanguage } = Astro.props;
 		text-decoration: none;
 	}
 </style>
-

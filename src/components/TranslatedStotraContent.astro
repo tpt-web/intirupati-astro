@@ -1,13 +1,16 @@
 ---
+import { transliterateStotraText } from '../lib/transliterateStotra';
+
 interface Props {
 	content: string;
+	scheme?: string;
 }
 
 type Block =
 	| { type: 'h2' | 'h3' | 'p'; text: string }
 	| { type: 'ul'; items: string[] };
 
-const { content } = Astro.props;
+const { content, scheme } = Astro.props;
 const lines = content
 	.replace(/\r\n/g, '\n')
 	.replace(/<[^>]*>/g, '')
@@ -19,10 +22,12 @@ let paragraph: string[] = [];
 let list: string[] = [];
 
 function cleanInline(text: string) {
-	return text
+	const cleaned = text
 		.replace(/\[(.*?)\]\([^)]+\)/g, '$1')
 		.replace(/[*_`]/g, '')
 		.trim();
+
+	return scheme ? transliterateStotraText(cleaned, scheme) : cleaned;
 }
 
 function flushParagraph() {
@@ -97,4 +102,3 @@ flushList();
 		line-height: 1.8;
 	}
 </style>
-

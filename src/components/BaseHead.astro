@@ -16,6 +16,7 @@ interface Props {
 	pubDate?: Date;
 	updatedDate?: Date;
 	canonicalURL?: string;
+	structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
@@ -25,6 +26,7 @@ const {
 	pubDate,
 	updatedDate,
 	canonicalURL = new URL(Astro.url.pathname, Astro.site).toString(),
+	structuredData,
 } = Astro.props;
 const image = Astro.props.image || FallbackImage;
 const imageSrc = typeof image === 'string' ? image : image.src;
@@ -44,6 +46,12 @@ const imageHeight = typeof image === 'string' ? undefined : image.height;
 	title={SITE_TITLE}
 	href={new URL('rss.xml', Astro.site)}
 />
+
+{
+	structuredData && (
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	)
+}
 <meta name="generator" content={Astro.generator} />
 
 <Font cssVariable="--font-atkinson" preload />

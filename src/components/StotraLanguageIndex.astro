@@ -1,0 +1,122 @@
+---
+const languages = [
+	{ label: 'English', href: '#hanuman-chalisa-english-lyrics' },
+	{ label: 'Devanagari', href: '#hanuman-chalisa-devanagari' },
+	{ label: 'Telugu', href: '#telugu-lyrics' },
+	{ label: 'Tamil', href: '#hanuman-chalisa-tamil-lyrics' },
+	{ label: 'Kannada', href: '#hanuman-chalisa-kannada-lyrics' },
+	{ label: 'Malayalam', href: '#hanuman-chalisa-malayalam-lyrics' },
+	{ label: 'Gujarati', href: '#hanuman-chalisa-gujarati-lyrics' },
+	{ label: 'Odia', href: '#hanuman-chalisa-odia-lyrics' },
+	{ label: 'Bengali', href: '#hanuman-chalisa-bengali-lyrics' },
+	{ label: 'Marathi', href: '#hanuman-chalisa-marathi-lyrics' },
+	{ label: 'Assamese', href: '#hanuman-chalisa-assamese-lyrics' },
+	{ label: 'Punjabi', href: '#hanuman-chalisa-punjabi-lyrics' },
+	{ label: 'Hindi', href: '#hanuman-chalisa-hindi-lyrics' },
+	{ label: 'Samskritam', href: '#hanuman-chalisa-sanskrit-lyrics' },
+	{ label: 'Konkani', href: '#hanuman-chalisa-konkani-lyrics' },
+	{ label: 'Nepali', href: '#hanuman-chalisa-nepali-lyrics' },
+	{ label: 'Sinhala', href: '#hanuman-chalisa-sinhala-lyrics' },
+	{ label: 'Grantha', href: '#hanuman-chalisa-grantha' },
+];
+
+const alternateNames = [
+	'Hanuman Chalisa English lyrics',
+	'Hanuman Chalisa Devanagari',
+	'Hanuman Chalisa Hindi lyrics',
+	'Hanuman Chalisa Telugu lyrics',
+	'Hanuman Chalisa Tamil lyrics',
+	'Hanuman Chalisa Kannada lyrics',
+	'Hanuman Chalisa Malayalam lyrics',
+	'Hanuman Chalisa Gujarati lyrics',
+	'Hanuman Chalisa Odia lyrics',
+	'Hanuman Chalisa Bengali lyrics',
+	'Hanuman Chalisa Marathi lyrics',
+	'Hanuman Chalisa Assamese lyrics',
+	'Hanuman Chalisa Punjabi lyrics',
+	'Hanuman Chalisa Sanskrit lyrics',
+	'Hanuman Chalisa Nepali lyrics',
+	'Hanuman Chalisa Sinhala lyrics',
+	'Hanuman Chalisa Grantha',
+];
+---
+
+<aside class="stotra-language-index" aria-label="Hanuman Chalisa language links">
+	<p class="view-label">View this in:</p>
+	<nav class="language-list" aria-label="Available Hanuman Chalisa scripts">
+		{languages.map((language) => (
+			<a href={language.href}>{language.label}</a>
+		))}
+	</nav>
+	<p class="script-note">
+		This document is in <span lang="te">సరళ తెలుగు</span> with simplified anusvaras.
+		View this in <a href="#telugu-lyrics" lang="te">శుద్ధ తెలుగు</a> with the Telugu lyrics below.
+	</p>
+	<div class="alternate-names" aria-label="Hanuman Chalisa language search names">
+		{alternateNames.map((name) => (
+			<span id={name.toLowerCase().replaceAll(' ', '-')}>{name}</span>
+		))}
+	</div>
+</aside>
+
+<style>
+	.stotra-language-index {
+		margin: 0 0 1.5rem;
+		padding: 0.85rem 1rem;
+		border: 1px solid rgba(var(--gray-light), 0.9);
+		border-radius: 8px;
+		background: #fffaf0;
+		font-size: 0.95rem;
+		line-height: 1.6;
+	}
+
+	.view-label {
+		margin: 0 0 0.35rem;
+		font-weight: 700;
+		color: rgb(var(--gray-dark));
+	}
+
+	.language-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem 0;
+		margin: 0;
+	}
+
+	.language-list a {
+		color: #8a3b12;
+		text-decoration: underline;
+		text-underline-offset: 0.18em;
+	}
+
+	.language-list a:not(:last-child)::after {
+		content: "|";
+		margin: 0 0.45rem;
+		color: rgba(var(--gray), 0.75);
+		text-decoration: none;
+		display: inline-block;
+	}
+
+	.script-note {
+		margin: 0.45rem 0 0;
+		color: rgb(var(--gray));
+	}
+
+	.script-note a {
+		color: #8a3b12;
+		font-weight: 700;
+	}
+
+	.alternate-names {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem 0.5rem;
+		margin-top: 0.65rem;
+		color: rgb(var(--gray));
+		font-size: 0.86rem;
+	}
+
+	.alternate-names span:not(:last-child)::after {
+		content: ",";
+	}
+</style>

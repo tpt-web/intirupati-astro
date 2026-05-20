@@ -1,16 +1,11 @@
 ---
 title: Hanuman Chalisa Telugu - హనుమాన్ చాలీసా తెలుగు Lyrics
-description: Read Hanuman Chalisa in Telugu with clear lyrics, doha, dhyanam,
-  chanting benefits, and easy Telugu script for daily Hanuman prayer.
+description: Read Hanuman Chalisa lyrics in Telugu with English, Hindi, Tamil,
+  Kannada, Malayalam, Gujarati, Bengali, Marathi, and other language search
+  references for daily Hanuman prayer.
 pubDate: 2026-05-20
 heroImage: ""
 ---
-<div class="language-switcher">
-  <strong>View / Read:</strong>
-  <a href="#telugu-lyrics">Telugu Lyrics</a> |
-  <a href="#english-meaning">English Meaning</a> |
-  <a href="#chanting-benefits">Benefits</a> 
-</div>
 
 ## Hanuman Chalisa in Telugu
 
@@ -23,7 +18,9 @@ heroImage: ""
 * చివర దోహా చదివి శ్రీరామ జయంతో ముగించండి.
 * భక్తితో చదవడం ముఖ్యం; ఉచ్చారణ తెలియకపోతే నెమ్మదిగా చదవండి.
 
-## Hanuman Chalisa Telugu Lyrics {telugu-lyrics}
+<span id="telugu-lyrics"></span>
+
+## Hanuman Chalisa Telugu Lyrics
 
 ### దోహా
 
@@ -184,11 +181,15 @@ heroImage: ""
 పవనసుత హనుమానకీ జయ ।\
 బోలో భాయీ సబ సంతనకీ జయ ।
 
-## Hanuman Chalisa English Meaning {english-meaning}
+<span id="english-meaning"></span>
+
+## Hanuman Chalisa English Meaning
 
 Hanuman Chalisa praises Lord Hanuman as the ocean of wisdom, strength, devotion, courage, and service to Sri Rama. Devotees read it for protection from fear, strength during difficulties, clarity of mind, and blessings for good work. The opening doha asks Hanuman to give strength, intelligence, and knowledge, and to remove pain and impurities from the mind.
 
-## Hanuman Chalisa Benefits {chanting-benefits}
+<span id="chanting-benefits"></span>
+
+## Hanuman Chalisa Benefits
 
 * Helps devotees remember Lord Hanuman and Sri Rama with focus.
 * Traditionally chanted for courage, confidence, and protection.

@@ -24,6 +24,7 @@ type Props = CollectionEntry<'blog'>['data'] & {
 	relatedLinks?: RelatedLink[];
 	adSlots?: AdSlot[];
 	canonicalURL?: string;
+	structuredData?: Record<string, unknown> | Record<string, unknown>[];
 };
 
 const {
@@ -35,6 +36,7 @@ const {
 	relatedLinks = [],
 	adSlots = [],
 	canonicalURL,
+	structuredData,
 } = Astro.props;
 ---
 
@@ -48,6 +50,7 @@ const {
 			pubDate={pubDate}
 			updatedDate={updatedDate}
 			canonicalURL={canonicalURL}
+			structuredData={structuredData}
 		/>
 		<style>
 			main {

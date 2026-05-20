@@ -62,8 +62,14 @@ const relatedLinks = candidates
 	}))
 	.sort((a, b) => b.score - a.score || b.date.valueOf() - a.date.valueOf())
 	.slice(0, 5);
+
+const adSlots = [
+	{ slot: '7608753970', label: 'Sponsored Advertisement' },
+	{ slot: '1924008995', label: 'Sponsored Advertisement' },
+	{ slot: '4981061956', label: 'Sponsored Advertisement' },
+];
 ---
 
-<BlogPost {...post.data} relatedLinks={relatedLinks}>
+<BlogPost {...post.data} relatedLinks={relatedLinks} adSlots={adSlots}>
 	<Content />
 </BlogPost>

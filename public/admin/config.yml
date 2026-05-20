@@ -3,6 +3,8 @@ backend:
   repo: tpt-web/intirupati-astro
   branch: main
 
+local_backend: true
+
 media_folder: "public/images"
 public_folder: "/images"
 

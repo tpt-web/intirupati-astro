@@ -1,0 +1,4 @@
+[build]
+  # Keep Netlify available for Decap CMS / Git Gateway authentication only.
+  # Public site deploys should run from Cloudflare Pages.
+  ignore = "exit 0"

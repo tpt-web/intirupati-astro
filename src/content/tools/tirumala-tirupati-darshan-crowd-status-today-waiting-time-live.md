@@ -3,7 +3,7 @@ title: Tirumala Darshan Crowd Status Live Today SSD Waiting Time
 description: Real-time Tirumala darshan waiting time today live from official
   TTD sources. Crowd status, SSD tokens, and queue times updated automatically.
 pubDate: 2026-05-19
-heroImage: /images/lord-venktesara-trans.webp
+heroImage: ""
 ---
 
 Get real-time **Tirumala darshan waiting time today live** from official TTD sources. This page updates automatically to give you the latest crowd status, waiting times, and SSD token availability at Tirumala Tirupati.

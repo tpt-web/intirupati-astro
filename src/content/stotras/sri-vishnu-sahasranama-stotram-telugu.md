@@ -666,7 +666,7 @@ heroImage: /images/sri-vishnu-sahasranama-stotram.webp
 * కుటుంబంతో కలిసి రోజువారీ ప్రార్థనగా చదవడానికి ఉపయోగకరంగా ఉంటుంది.
 * మనసును ఏకాగ్రం చేసి, నిత్య స్మరణ అలవాటు పెంచడానికి సహాయపడుతుంది.
 
-## సంబంధిత స్తోత్రంస్
+## సంబంధిత స్తోత్రాలు
 
 * [List of Stotras - స్తోత్రాలు](/stotras/)
 * [Sri Venkateswara Suprabhatam - శ్రీ వేంకటేశ్వర సుప్రభాతం](/stotras/sri-venkateswara-suprabhatam/)

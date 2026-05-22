@@ -2,6 +2,13 @@ import Sanscript from '@indic-transliteration/sanscript';
 
 const phraseReplacements: Array<[RegExp, string]> = [
 	[/Sri Venkateswara Suprabhatam/gi, 'శ్రీ వేంకటేశ్వర సుప్రభాతం'],
+	[/Sri Lalitha Sahasranama Stotram/gi, 'శ్రీ లలితా సహస్రనామ స్తోత్రం'],
+	[/Sri Lalitha Sahasra Nama Stotram/gi, 'శ్రీ లలితా సహస్ర నామ స్తోత్రం'],
+	[/Lalitha Sahasranama Stotram/gi, 'లలితా సహస్రనామ స్తోత్రం'],
+	[/Lalitha Sahasra Nama Stotram/gi, 'లలితా సహస్ర నామ స్తోత్రం'],
+	[/Lalitha Devi/gi, 'లలితా దేవి'],
+	[/Goddess Lalitha/gi, 'శ్రీ లలితా దేవి'],
+	[/Mahatripurasundari/gi, 'మహాత్రిపురసుందరీ'],
 	[/Sri Vishnu Sahasranama Stotram/gi, 'శ్రీ విష్ణు సహస్రనామ స్తోత్రం'],
 	[/Sri Vishnu Sahasra Nama Stotram/gi, 'శ్రీ విష్ణు సహస్ర నామ స్తోత్రం'],
 	[/Vishnu Sahasranama Stotram/gi, 'విష్ణు సహస్రనామ స్తోత్రం'],

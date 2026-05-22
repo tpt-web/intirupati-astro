@@ -4,7 +4,7 @@ description: Read Hanuman Chalisa lyrics in Telugu with English, Hindi, Tamil,
   Kannada, Malayalam, Gujarati, Bengali, Marathi, and other language search
   references for daily Hanuman prayer.
 pubDate: 2026-05-20
-heroImage: ""
+heroImage: /images/hanuman-chalisa-intirupat-in.webp
 ---
 
 ## Hanuman Chalisa in Telugu

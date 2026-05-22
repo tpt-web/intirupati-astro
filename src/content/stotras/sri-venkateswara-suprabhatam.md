@@ -1,8 +1,10 @@
 ---
 title: Sri Venkateswara Suprabhatam - శ్రీ వేంకటేశ్వర సుప్రభాతం Lyrics
-description: Read Sri Venkateswara Suprabhatam lyrics in Telugu with English, Hindi, Tamil, Kannada, Malayalam, Gujarati, Bengali, Marathi, and other language search references for daily Lord Venkateswara prayer.
+description: Read Sri Venkateswara Suprabhatam lyrics in Telugu with English,
+  Hindi, Tamil, Kannada, Malayalam, Gujarati, Bengali, Marathi, and other
+  language search references for daily Lord Venkateswara prayer.
 pubDate: 2026-05-20
-heroImage: ""
+heroImage: /images/sri-venkateswara-suprabhatam-lyrics.webp
 ---
 
 ## Sri Venkateswara Suprabhatam in Telugu

@@ -10,7 +10,7 @@ export type StotraLanguage = {
 
 export const stotraLanguages = [
 	{ label: 'English', slug: 'english', scheme: 'iast', locale: 'en-IN' },
-	{ label: 'Devanagari', slug: 'devanagari', scheme: 'devanagari', locale: 'sa-IN' },
+	{ label: 'Devanagari', slug: 'devanagari', scheme: 'devanagari', locale: 'sa-Deva' },
 	{ label: 'Telugu', slug: 'telugu', scheme: 'telugu', locale: 'te-IN' },
 	{ label: 'Tamil', slug: 'tamil', scheme: 'tamil', locale: 'ta-IN' },
 	{ label: 'Kannada', slug: 'kannada', scheme: 'kannada', locale: 'kn-IN' },
@@ -25,7 +25,7 @@ export const stotraLanguages = [
 	{ label: 'Samskritam', slug: 'samskritam', scheme: 'devanagari', locale: 'sa-IN' },
 	{ label: 'Nepali', slug: 'nepali', scheme: 'devanagari', locale: 'ne-NP' },
 	{ label: 'Sinhala', slug: 'sinhala', scheme: 'sinhala', locale: 'si-LK' },
-	{ label: 'Grantha', slug: 'grantha', scheme: 'grantha', locale: 'sa-IN' },
+	{ label: 'Grantha', slug: 'grantha', scheme: 'grantha', locale: 'sa-Gran' },
 ] satisfies StotraLanguage[];
 
 const languageSuffixes = stotraLanguages.map((language) => language.slug);

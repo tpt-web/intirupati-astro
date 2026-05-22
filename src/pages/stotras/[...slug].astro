@@ -4,6 +4,10 @@ import BlogPost from '../../layouts/BlogPost.astro';
 import { postCanonicalURL } from '../../lib/postUrls';
 import HanumanChalisaSeoTags from '../../components/HanumanChalisaSeoTags.astro';
 import StotraLanguageLinks from '../../components/StotraLanguageLinks.astro';
+import {
+	stotraLanguageLinkPath,
+	stotraLanguages,
+} from '../../lib/stotraLanguages';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('stotras');
@@ -19,39 +23,35 @@ const post = Astro.props;
 const { Content } = await render(post);
 const canonicalURL = postCanonicalURL(post, Astro.site);
 const showHanumanLanguageIndex = post.id === 'hanuman-chalisa-telugu';
-const hanumanStructuredData = showHanumanLanguageIndex
-	? {
-			'@context': 'https://schema.org',
-			'@type': 'CreativeWork',
-			name: post.data.title,
-			headline: post.data.title,
-			description: post.data.description,
-			url: canonicalURL,
-			inLanguage: ['te-IN', 'en-IN', 'hi-IN', 'ta-IN', 'kn-IN', 'ml-IN', 'gu-IN', 'or-IN', 'bn-IN', 'mr-IN', 'as-IN', 'pa-IN', 'sa-IN', 'ne-NP', 'si-LK'],
-			alternateName: [
-				'Hanuman Chalisa English lyrics',
-				'Hanuman Chalisa Devanagari',
-				'Hanuman Chalisa Telugu lyrics',
-				'Hanuman Chalisa Tamil lyrics',
-				'Hanuman Chalisa Kannada lyrics',
-				'Hanuman Chalisa Malayalam lyrics',
-				'Hanuman Chalisa Gujarati lyrics',
-				'Hanuman Chalisa Odia lyrics',
-				'Hanuman Chalisa Bengali lyrics',
-				'Hanuman Chalisa Marathi lyrics',
-				'Hanuman Chalisa Assamese lyrics',
-				'Hanuman Chalisa Punjabi lyrics',
-				'Hanuman Chalisa Hindi lyrics',
-				'Hanuman Chalisa Sanskrit lyrics',
-				'Hanuman Chalisa Nepali lyrics',
-				'Hanuman Chalisa Sinhala lyrics',
-				'Hanuman Chalisa Grantha',
-			],
-			genre: ['Stotra', 'Devotional lyrics', 'Hindu prayer'],
-			datePublished: post.data.pubDate.toISOString(),
-			dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
-		}
-	: undefined;
+const baseTitle = post.data.title
+	.replace(/\s*-\s*.*$/, '')
+	.replace(/\s+Telugu\b/i, '')
+	.trim();
+const alternateLinks = [
+	...stotraLanguages.map((language) => ({
+		hreflang: language.locale,
+		href: new URL(stotraLanguageLinkPath(post, language), Astro.site).toString(),
+	})),
+	{ hreflang: 'x-default', href: canonicalURL },
+];
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'CreativeWork',
+	name: post.data.title,
+	headline: post.data.title,
+	description: post.data.description,
+	url: canonicalURL,
+	inLanguage: stotraLanguages.map((language) => language.locale),
+	alternateName: stotraLanguages.map((language) => `${baseTitle} ${language.label} lyrics`),
+	genre: ['Stotra', 'Devotional lyrics', 'Hindu prayer'],
+	isPartOf: {
+		'@type': 'CollectionPage',
+		name: 'List of Stotras',
+		url: new URL('/stotras/', Astro.site).toString(),
+	},
+	datePublished: post.data.pubDate.toISOString(),
+	dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+};
 
 const adSlots = [
 	{ slot: '7608753970', label: 'Sponsored Advertisement' },
@@ -60,7 +60,13 @@ const adSlots = [
 ];
 ---
 
-<BlogPost {...post.data} adSlots={adSlots} canonicalURL={canonicalURL} structuredData={hanumanStructuredData}>
+<BlogPost
+	{...post.data}
+	adSlots={adSlots}
+	canonicalURL={canonicalURL}
+	structuredData={structuredData}
+	alternateLinks={alternateLinks}
+>
 	<Content />
 	<StotraLanguageLinks post={post} currentLanguage="telugu" />
 	{showHanumanLanguageIndex && <HanumanChalisaSeoTags />}

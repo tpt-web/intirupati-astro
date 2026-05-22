@@ -7,6 +7,7 @@ import { transliterateStotraText } from '../../../lib/transliterateStotra';
 import {
 	type StotraLanguage,
 	stotraBaseSlug,
+	stotraLanguageLinkPath,
 	stotraLanguagePath,
 	stotraLanguages,
 } from '../../../lib/stotraLanguages';
@@ -46,6 +47,19 @@ const localizedSource = post.body
 	.replace(/\bTelugu\b/gi, language.label)
 	.replace(/తెలుగు/g, language.label)
 	.replace(/\bEnglish Meaning\b/gi, `${language.label} Meaning`);
+const alternateLinks = [
+	...stotraLanguages.map((alternateLanguage) => ({
+		hreflang: alternateLanguage.locale,
+		href: new URL(stotraLanguageLinkPath(post, alternateLanguage), Astro.site).toString(),
+	})),
+	{
+		hreflang: 'x-default',
+		href: new URL(
+			stotraLanguageLinkPath(post, stotraLanguages.find((alternateLanguage) => alternateLanguage.slug === 'telugu') ?? language),
+			Astro.site,
+		).toString(),
+	},
+];
 const structuredData = {
 	'@context': 'https://schema.org',
 	'@type': 'CreativeWork',
@@ -77,6 +91,7 @@ const adSlots = [
 	adSlots={adSlots}
 	canonicalURL={canonicalURL}
 	structuredData={structuredData}
+	alternateLinks={alternateLinks}
 >
 	<StotraLanguageLinks post={post} currentLanguage={language.slug} labelTitle={displayTitle} />
 	{isTelugu ? <Content /> : <TranslatedStotraContent content={localizedSource} scheme={language.scheme} />}

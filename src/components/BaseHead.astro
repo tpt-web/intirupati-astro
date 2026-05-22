@@ -17,6 +17,10 @@ interface Props {
 	updatedDate?: Date;
 	canonicalURL?: string;
 	structuredData?: Record<string, unknown> | Record<string, unknown>[];
+	alternateLinks?: Array<{
+		href: string;
+		hreflang: string;
+	}>;
 }
 
 const {
@@ -27,6 +31,7 @@ const {
 	updatedDate,
 	canonicalURL = new URL(Astro.url.pathname, Astro.site).toString(),
 	structuredData,
+	alternateLinks = [],
 } = Astro.props;
 const image = Astro.props.image || FallbackImage;
 const imageSrc = typeof image === 'string' ? image : image.src;
@@ -104,6 +109,13 @@ const imageHeight = typeof image === 'string' ? undefined : image.height;
 		imageAlt: title,
 	}}
 	extend={{
-		link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+		link: [
+			{ rel: 'icon', type: 'image/png', href: '/favicon.png' },
+			...alternateLinks.map((link) => ({
+				rel: 'alternate',
+				hreflang: link.hreflang,
+				href: link.href,
+			})),
+		],
 	}}
 />

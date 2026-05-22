@@ -1,6 +1,4 @@
 # Legacy WordPress/Astro section URLs should consolidate to root post permalinks.
-/strotras/ /stotras/ 301
-/strotras/* /stotras/:splat 301
 /stotras/telugu/hanuman-chalisa/ /stotras/hanuman-chalisa-telugu/ 301
 /stotras/telugu/sri-venkateswara-suprabhatam/ /stotras/sri-venkateswara-suprabhatam/ 301
 /stotras/telugu/sri-vishnu-sahasranama-stotram/ /stotras/sri-vishnu-sahasranama-stotram-telugu/ 301

@@ -1,10 +1,11 @@
 ---
 title: Sri Vishnu Sahasranama Stotram Telugu - శ్రీ విష్ణు సహస్ర నామ స్తోత్రం Lyrics
-description: Read Sri Vishnu Sahasranama Stotram lyrics in Telugu with English, Hindi, Tamil, Kannada, Malayalam, Gujarati, Bengali, Marathi, and other language search references for daily Lord Vishnu prayer.
+description: Read Sri Vishnu Sahasranama Stotram lyrics in Telugu with English,
+  Hindi, Tamil, Kannada, Malayalam, Gujarati, Bengali, Marathi, and other
+  language search references for daily Lord Vishnu prayer.
 pubDate: 2026-05-22
-heroImage: ""
+heroImage: /images/sri-vishnu-sahasranama-stotram.webp
 ---
-
 ## Sri Vishnu Sahasranama Stotram in Telugu
 
 **శ్రీ విష్ణు సహస్ర నామ స్తోత్రం తెలుగు** భక్తులకు ప్రతిరోజూ లేదా గురువారం, ఏకాదశి, వైకుంఠ ఏకాదశి, ప్రత్యేక పూజల సమయంలో పారాయణం చేయడానికి సులభంగా ఉండేలా ఇక్కడ స్పష్టమైన తెలుగు లిపిలో ఇవ్వబడింది. ఈ స్తోత్రం మహాభారతంలోని అనుశాసన పర్వంలో భీష్ముడు యుధిష్ఠిరునికి ఉపదేశించిన శ్రీ మహావిష్ణువు యొక్క పవిత్ర సహస్ర నామ స్తుతి.
@@ -526,7 +527,7 @@ heroImage: ""
 వైశ్యో ధనసమృద్ధః స్యాత్ శూద్రః సుఖమవాప్నుయాత్ ॥ 3 ॥
 
 ధర్మార్థీ ప్రాప్నుయాద్ధర్మమర్థార్థీ చార్థమాప్నుయాత్ ।\
-కామానవాప్నుయాత్ కామీ ప్రజార్థీ చాప్నుయాత్ప్రజామ్ ॥ 4 ॥ [ప్రాప్నుయాత్ప్రజాం]
+కామానవాప్నుయాత్ కామీ ప్రజార్థీ చాప్నుయాత్ప్రజామ్ ॥ 4 ॥ \[ప్రాప్నుయాత్ప్రజాం]
 
 భక్తిమాన్ యః సదోత్థాయ శుచిస్తద్గతమానసః ।\
 సహస్రం వాసుదేవస్య నామ్నామేతత్ ప్రకీర్తయేత్ ॥ 5 ॥
@@ -664,10 +665,6 @@ heroImage: ""
 * ఏకాదశి, గురువారం, పౌర్ణమి, వైకుంఠ ఏకాదశి రోజుల్లో పారాయణానికి అనుకూలం.
 * కుటుంబంతో కలిసి రోజువారీ ప్రార్థనగా చదవడానికి ఉపయోగకరంగా ఉంటుంది.
 * మనసును ఏకాగ్రం చేసి, నిత్య స్మరణ అలవాటు పెంచడానికి సహాయపడుతుంది.
-
-## Source Reference
-
-This Telugu stotra text is prepared with reference to Vaidika Vignanam: [Sree Vishnu Sahasra Nama Stotram - Telugu](https://vignanam.org/telugu/sree-vishnu-sahasra-nama-stotram.html).
 
 ## సంబంధిత స్తోత్రంస్
 

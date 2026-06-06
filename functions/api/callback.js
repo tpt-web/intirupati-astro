@@ -1,78 +1,68 @@
-function renderBody(status, content) {
-    const html = `
-    <script>
-      const receiveMessage = (message) => {
-        window.opener.postMessage(
-          'authorization:github:${status}:${JSON.stringify(content)}',
-          message.origin
-        );
-        window.removeEventListener("message", receiveMessage, false);
-      }
-      window.addEventListener("message", receiveMessage, false);
-      window.opener.postMessage("authorizing:github", "*");
-    </script>
-    `;
-    const blob = new Blob([html]);
-    return blob;
-}
-
 export async function onRequest(context) {
-    const {
-        request, // same as existing Worker API
-        env, // same as existing Worker API
-        params, // if filename includes [id] or [[path]]
-        waitUntil, // same as ctx.waitUntil in existing Worker API
-        next, // used for middleware or to fetch assets
-        data, // arbitrary space for passing data between middlewares
-    } = context;
+    const { request, env, url } = context;
 
-    const client_id = env.Ov23lixNJvKXTLIG3O4t;
-    const client_secret = env.583e6d4f998dc2d45827f51b4ab15a543c2b3f9f;
+    // ✅ CORRECT: Get values from environment variables
+    const client_id = env.GITHUB_CLIENT_ID;
+    const client_secret = env.GITHUB_CLIENT_SECRET;
+
+    // Get the code from GitHub's callback URL
+    const code = url.searchParams.get('code');
+    
+    // Get the origin (https://intirupati.in) dynamically
+    const origin = url.origin;
 
     try {
-        const url = new URL(request.url);
-        const code = url.searchParams.get('code');
-        const response = await fetch(
-            'https://github.com/login/oauth/access_token',
-            {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json',
-                    'user-agent': 'cloudflare-functions-github-oauth-login-demo',
-                    'accept': 'application/json',
-                },
-                body: JSON.stringify({ client_id, client_secret, code }),
+        // Exchange the code for an access token
+        const response = await fetch('https://github.com/login/oauth/access_token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
             },
-        );
-        const result = await response.json();
-        if (result.error) {
-            return new Response(renderBody('error', result), {
-                headers: {
-                    'content-type': 'text/html;charset=UTF-8',
-                },
-                status: 401 
+            body: JSON.stringify({
+                client_id: client_id,
+                client_secret: client_secret,
+                code: code,
+            }),
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+            return new Response(JSON.stringify({ error: data.error }), {
+                status: 401,
+                headers: { 'Content-Type': 'application/json' },
             });
         }
-        const token = result.access_token;
-        const provider = 'github';
-        const responseBody = renderBody('success', {
-            token,
-            provider,
-        });
-        return new Response(responseBody, { 
-            headers: {
-                'content-type': 'text/html;charset=UTF-8',
-            },
-            status: 200 
+
+        const accessToken = data.access_token;
+
+        // Return HTML that sends the token back to Decap CMS
+        const html = `<!DOCTYPE html>
+        <html>
+        <head><title>Authorizing...</title></head>
+        <body>
+            <script>
+                // Send the token to the Decap CMS window
+                window.opener.postMessage({
+                    type: 'authorization',
+                    data: { access_token: '${accessToken}' }
+                }, '${origin}');
+                window.close();
+            </script>
+            <p>Authorization complete. You may close this window.</p>
+        </body>
+        </html>`;
+
+        return new Response(html, {
+            headers: { 'Content-Type': 'text/html' },
         });
 
     } catch (error) {
-        console.error(error);
-        return new Response(error.message, {
-            headers: {
-                'content-type': 'text/html;charset=UTF-8',
-            },
+        console.error('OAuth error:', error);
+        return new Response(JSON.stringify({ error: error.message }), {
             status: 500,
+            headers: { 'Content-Type': 'application/json' },
         });
     }
 }

@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: tpt-web/intirupati-astro
   branch: main
+  base_url: https://intirupati.in
+  auth_endpoint: /api/auth
 
 local_backend: true
 
@@ -16,13 +19,9 @@ collections:
 
     fields:
       - { label: "Title", name: "title", widget: "string" }
-
       - { label: "Description", name: "description", widget: "text" }
-
       - { label: "Publish Date", name: "pubDate", widget: "datetime" }
-
       - { label: "Hero Image", name: "heroImage", widget: "image" }
-
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "stotras"
@@ -33,13 +32,9 @@ collections:
 
     fields:
       - { label: "Title", name: "title", widget: "string" }
-
       - { label: "Description", name: "description", widget: "text" }
-
       - { label: "Publish Date", name: "pubDate", widget: "datetime" }
-
       - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
-
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "tools"
@@ -50,11 +45,7 @@ collections:
 
     fields:
       - { label: "Title", name: "title", widget: "string" }
-
       - { label: "Description", name: "description", widget: "text" }
-
       - { label: "Publish Date", name: "pubDate", widget: "datetime", required: false }
-
       - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
-
       - { label: "Body", name: "body", widget: "markdown" }

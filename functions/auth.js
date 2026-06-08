@@ -1,72 +1,72 @@
-export default async function onRequest(context) {
-  const { request, env } = context;
-  const url = new URL(request.url);
-  const code = url.searchParams.get('code');
-  const state = url.searchParams.get('state');
-  const origin = `${url.protocol}//${url.host}`;
-  const redirectUri = `${origin}/auth`;
-  const cookieHeader = request.headers.get('cookie') || '';
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    const code = url.searchParams.get('code');
+    const state = url.searchParams.get('state');
+    const origin = `${url.protocol}//${url.host}`;
+    const redirectUri = `${origin}/auth`;
+    const cookieHeader = request.headers.get('cookie') || '';
 
-  const getCookie = (cookies, name) => {
-    return cookies
-      .split(';')
-      .map((cookie) => cookie.trim())
-      .find((cookie) => cookie.startsWith(`${name}=`))
-      ?.split('=')[1];
-  };
+    const getCookie = (cookies, name) => {
+      return cookies
+        .split(';')
+        .map((cookie) => cookie.trim())
+        .find((cookie) => cookie.startsWith(`${name}=`))
+        ?.split('=')[1];
+    };
 
-  const stateCookieName = 'github_oauth_state';
-  const currentState = getCookie(cookieHeader, stateCookieName);
+    const stateCookieName = 'github_oauth_state';
+    const currentState = getCookie(cookieHeader, stateCookieName);
 
-  if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET) {
-    return new Response('Missing GITHUB_CLIENT_ID or GITHUB_CLIENT_SECRET', { status: 500 });
-  }
+    if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET) {
+      return new Response('Missing GITHUB_CLIENT_ID or GITHUB_CLIENT_SECRET', { status: 500 });
+    }
 
-  if (!code) {
-    const nextState = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2);
-    const authUrl = new URL('https://github.com/login/oauth/authorize');
-    authUrl.searchParams.set('client_id', env.GITHUB_CLIENT_ID);
-    authUrl.searchParams.set('redirect_uri', redirectUri);
-    authUrl.searchParams.set('scope', 'public_repo');
-    authUrl.searchParams.set('state', nextState);
-    authUrl.searchParams.set('allow_signup', 'false');
+    if (!code) {
+      const nextState = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2);
+      const authUrl = new URL('https://github.com/login/oauth/authorize');
+      authUrl.searchParams.set('client_id', env.GITHUB_CLIENT_ID);
+      authUrl.searchParams.set('redirect_uri', redirectUri);
+      authUrl.searchParams.set('scope', 'public_repo');
+      authUrl.searchParams.set('state', nextState);
+      authUrl.searchParams.set('allow_signup', 'false');
 
-    return new Response(null, {
-      status: 302,
+      return new Response(null, {
+        status: 302,
+        headers: {
+          Location: authUrl.toString(),
+          'Set-Cookie': `${stateCookieName}=${nextState}; Path=/auth; Secure; SameSite=Lax; Max-Age=600`,
+        },
+      });
+    }
+
+    if (!state || state !== currentState) {
+      return new Response('Invalid or missing OAuth state', { status: 400 });
+    }
+
+    const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
+      method: 'POST',
       headers: {
-        Location: authUrl.toString(),
-        'Set-Cookie': `${stateCookieName}=${nextState}; Path=/auth; Secure; SameSite=Lax; Max-Age=600`,
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
+      body: JSON.stringify({
+        client_id: env.GITHUB_CLIENT_ID,
+        client_secret: env.GITHUB_CLIENT_SECRET,
+        code,
+        redirect_uri: redirectUri,
+        state,
+      }),
     });
-  }
 
-  if (!state || state !== currentState) {
-    return new Response('Invalid or missing OAuth state', { status: 400 });
-  }
+    const tokenData = await tokenResponse.json();
+    const accessToken = tokenData.access_token;
 
-  const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      client_id: env.GITHUB_CLIENT_ID,
-      client_secret: env.GITHUB_CLIENT_SECRET,
-      code,
-      redirect_uri: redirectUri,
-      state,
-    }),
-  });
+    if (!accessToken) {
+      return new Response('GitHub OAuth exchange failed', { status: 500 });
+    }
 
-  const tokenData = await tokenResponse.json();
-  const accessToken = tokenData.access_token;
-
-  if (!accessToken) {
-    return new Response('GitHub OAuth exchange failed', { status: 500 });
-  }
-
-  const html = `<!doctype html>
+    const html = `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -82,11 +82,12 @@ export default async function onRequest(context) {
   </body>
 </html>`;
 
-  return new Response(html, {
-    headers: {
-      'Content-Type': 'text/html; charset=utf-8',
-      'Set-Cookie': `${stateCookieName}=; Path=/auth; Secure; SameSite=Lax; Max-Age=0`,
-      'Cache-Control': 'no-store',
-    },
-  });
-}
+    return new Response(html, {
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Set-Cookie': `${stateCookieName}=; Path=/auth; Secure; SameSite=Lax; Max-Age=0`,
+        'Cache-Control': 'no-store',
+      },
+    });
+  }
+};

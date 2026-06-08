@@ -1,7 +1,7 @@
 name = "intirupati-astro"
+type = "javascript"
 compatibility_date = "2026-06-08"
+main = "functions/auth.js"
 
 [assets]
 directory = "./dist"
-
-[env.production]

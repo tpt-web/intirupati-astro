@@ -5,7 +5,7 @@ import path from 'path';
 const accountId = process.env.CF_ACCOUNT_ID || process.env.CLOUDFLARE_ACCOUNT_ID || '';
 const projectName = process.env.WRANGLER_PROJECT_NAME || 'intirupati-astro';
 const compatibilityDate = process.env.WRANGLER_COMPATIBILITY_DATE || new Date().toISOString().slice(0, 10);
-const route = process.env.CF_WORKER_ROUTE || 'intirupati.in/*';
+const route = process.env.CF_WORKER_ROUTE || '/auth';
 
 const lines = [];
 lines.push(`name = "${projectName}"`);

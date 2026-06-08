@@ -36,5 +36,32 @@
       }
     })();
   </script>
+  <script>
+    // Intercept attempts to open Netlify auth and route to our /auth endpoint
+    (function(){
+      var _open = window.open.bind(window);
+      window.open = function(url, name, specs) {
+        try {
+          if (typeof url === 'string' && url.indexOf('api.netlify.com') !== -1) {
+            return _open('/auth', name || '_blank', specs);
+          }
+        } catch (e) {
+          console.error('auth intercept error', e);
+        }
+        return _open(url, name, specs);
+      };
+      // Also replace any direct anchor links to api.netlify.com
+      document.addEventListener('click', function(e){
+        var a = e.target.closest && e.target.closest('a');
+        if (!a) return;
+        try {
+          if (a.href && a.href.indexOf('api.netlify.com') !== -1) {
+            e.preventDefault();
+            window.open('/auth', a.target || '_blank');
+          }
+        } catch (err) { /* ignore */ }
+      }, true);
+    })();
+  </script>
 </body>
 </html>

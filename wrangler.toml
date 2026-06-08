@@ -1,0 +1,6 @@
+name = "intirupati-astro"
+main = "functions/auth.js"
+compatibility_date = "2026-06-08"
+
+[site]
+bucket = "dist"

@@ -163,26 +163,30 @@ export async function onRequest({ request, env }) {
 
   const serveStatic = async (request, env) => {
     const url = new URL(request.url);
-    const pathname = url.pathname === '/' ? '/index.html' : url.pathname;
-    const assetRequest = new Request(new URL(pathname, request.url), request);
+    const pathname = url.pathname;
 
+    // Serve admin UI for /admin and any subpaths under /admin
+    if (pathname === '/admin' || pathname === '/admin/' || pathname.startsWith('/admin/')) {
+      const adminReq = new Request(new URL('/admin/index.html', request.url), request);
+      const adminRes = await env.__STATIC_CONTENT.get(adminReq);
+      if (adminRes) return adminRes;
+      return new Response('Admin not found', { status: 404 });
+    }
+
+    // Try to serve the exact asset first
+    const assetPath = pathname === '/' ? '/index.html' : pathname;
+    const assetReq = new Request(new URL(assetPath, request.url), request);
     try {
-      const assetResponse = await env.__STATIC_CONTENT.get(assetRequest);
-      if (assetResponse) {
-        return assetResponse;
-      }
-    } catch (error) {
-      // continue to fallback handling
+      const assetRes = await env.__STATIC_CONTENT.get(assetReq);
+      if (assetRes) return assetRes;
+    } catch (err) {
+      // ignore and fallthrough to SPA index fallback
     }
 
-    // fallback for directory route without explicit index file
-    if (pathname.endsWith('/')) {
-      const indexRequest = new Request(new URL(`${pathname}index.html`, request.url), request);
-      const indexResponse = await env.__STATIC_CONTENT.get(indexRequest);
-      if (indexResponse) {
-        return indexResponse;
-      }
-    }
+    // SPA fallback: serve index.html for client-side routes
+    const indexReq = new Request(new URL('/index.html', request.url), request);
+    const indexRes = await env.__STATIC_CONTENT.get(indexReq);
+    if (indexRes) return indexRes;
 
     return new Response('Not found', { status: 404 });
   };

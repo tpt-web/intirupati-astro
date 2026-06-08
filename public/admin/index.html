@@ -103,7 +103,7 @@
 
     const initCMS = () => {
       if (window.CMS && typeof CMS.init === 'function') {
-        CMS.init({ config: cmsConfig });
+        CMS.init({ config: cmsConfig, load_config_file: false });
       } else {
         setTimeout(initCMS, 50);
       }

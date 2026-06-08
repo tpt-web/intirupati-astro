@@ -100,10 +100,8 @@ async function serveStatic(request, env) {
     return new Response('Admin not found', { status: 404 });
   }
 
-  const assetPath = pathname === '/' ? '/index.html' : pathname;
-  const assetReq = new Request(new URL(assetPath, request.url), request);
   try {
-    const assetRes = await env.__STATIC_CONTENT.get(assetReq);
+    const assetRes = await env.__STATIC_CONTENT.get(request);
     if (assetRes) return assetRes;
   } catch (err) {
     // ignore and continue to SPA fallback

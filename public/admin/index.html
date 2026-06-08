@@ -14,5 +14,27 @@
   </script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <noscript>Please enable JavaScript to access the content editor.</noscript>
+  <script>
+    (async function(){
+      try {
+        const res = await fetch('/admin/config.yml', { cache: 'no-store' });
+        const text = await res.text();
+        const pre = document.createElement('pre');
+        pre.style.whiteSpace = 'pre-wrap';
+        pre.style.background = '#f8f8f8';
+        pre.style.padding = '8px';
+        pre.style.border = '1px solid #ddd';
+        pre.textContent = 'Loaded /admin/config.yml:\n\n' + text.slice(0, 2000);
+        document.body.appendChild(pre);
+        console.log('Loaded /admin/config.yml:', text);
+      } catch (err) {
+        const el = document.createElement('div');
+        el.textContent = 'Failed to fetch /admin/config.yml: ' + err.message;
+        el.style.color = 'red';
+        document.body.appendChild(el);
+        console.error(err);
+      }
+    })();
+  </script>
 </body>
 </html>

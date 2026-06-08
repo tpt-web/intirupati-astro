@@ -1,0 +1,8 @@
+name = "intirupati-astro"
+type = "javascript"
+main = "functions/auth.js"
+
+env = {}
+
+[env.production]
+vars = { }

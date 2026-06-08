@@ -83,8 +83,9 @@ npm run build
    - `npm run build`
 3. Set the build output directory to:
    - `dist`
-4. Add `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` to Cloudflare Pages environment variables.
-5. Publish the site.
+4. Do not set a custom deploy command. Leave the deploy command blank.
+5. Add `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` to Cloudflare Pages environment variables.
+6. Publish the site.
 
 ## SEO support
 

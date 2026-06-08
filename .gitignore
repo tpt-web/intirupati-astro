@@ -1,5 +1,7 @@
 # build output
 dist/
+# generated Cloudflare worker config
+wrangler.toml
 # generated types
 .astro/
 

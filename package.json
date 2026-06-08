@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "wrangler deploy",
+    "version": "wrangler versions upload"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.6",
@@ -21,5 +23,8 @@
     "astro-seo": "^1.1.0",
     "sharp": "^0.34.3",
     "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
   }
 }

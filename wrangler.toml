@@ -1,4 +1,5 @@
 name = "intirupati-astro"
+type = "javascript"
 main = "functions/auth.js"
 compatibility_date = "2026-06-08"
 

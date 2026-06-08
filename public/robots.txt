@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 
+Disallow: /admin/
+Disallow: /auth
+
 Sitemap: https://intirupati.in/sitemap.xml
 Sitemap: https://intirupati.in/sitemap-index.xml

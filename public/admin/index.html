@@ -1,22 +1,18 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <base href="/admin/" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>In Tirupati Admin</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <base href="/admin/" />
+  <title>InTirupati Admin</title>
 </head>
 <body>
   <script>
-    if (window.location.hostname === 'intirupati.in' || window.location.hostname === 'www.intirupati.in') {
-      window.location.replace('https://quiet-pudding-d64a52.netlify.app/admin/');
-    }
-
     if (window.location.pathname === '/admin') {
       window.location.replace('/admin/');
     }
   </script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <noscript>Please enable JavaScript to access the content editor.</noscript>
 </body>
 </html>

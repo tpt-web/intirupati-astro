@@ -1,11 +1,13 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: tpt-web/intirupati-astro
   branch: main
+  auth_endpoint: "/auth"
+  api_root: "https://api.github.com"
+  open_authoring: false
 
-local_backend: true
-
-media_folder: "public/images"
-public_folder: "/images"
+media_folder: "public/uploads"
+public_folder: "/uploads"
 
 collections:
   - name: "blog"
@@ -13,48 +15,57 @@ collections:
     folder: "src/content/blog"
     create: true
     slug: "{{slug}}"
-
     fields:
       - { label: "Title", name: "title", widget: "string" }
-
       - { label: "Description", name: "description", widget: "text" }
-
       - { label: "Publish Date", name: "pubDate", widget: "datetime" }
-
       - { label: "Hero Image", name: "heroImage", widget: "image" }
-
       - { label: "Body", name: "body", widget: "markdown" }
 
-  - name: "stotras"
-    label: "Stotras - స్తోత్రాలు"
-    folder: "src/content/stotras"
+  - name: "shayari"
+    label: "Shayari"
+    folder: "src/content/shayari"
     create: true
     slug: "{{slug}}"
-
     fields:
       - { label: "Title", name: "title", widget: "string" }
-
       - { label: "Description", name: "description", widget: "text" }
-
-      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
-
+      - { label: "Publish Date", name: "pubDate", widget: "datetime", required: false }
       - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
 
+  - name: "quotes"
+    label: "Quotes"
+    folder: "src/content/quotes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime", required: false }
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "tools"
-    label: "Tools"
+    label: "SEO Tools"
     folder: "src/content/tools"
     create: true
     slug: "{{slug}}"
-
     fields:
       - { label: "Title", name: "title", widget: "string" }
-
       - { label: "Description", name: "description", widget: "text" }
-
       - { label: "Publish Date", name: "pubDate", widget: "datetime", required: false }
-
       - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
 
+  - name: "prompts"
+    label: "Devotional Prompts"
+    folder: "src/content/prompts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime", required: false }
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }

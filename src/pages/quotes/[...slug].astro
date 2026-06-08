@@ -1,0 +1,21 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('quotes');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
+}
+
+type Props = CollectionEntry<'quotes'>;
+const post = Astro.props as Props;
+const { Content } = await render(post);
+const canonicalURL = new URL(`/quotes/${post.id}/`, Astro.site).toString();
+---
+
+<BlogPost {...post.data} canonicalURL={canonicalURL}>
+  <Content />
+</BlogPost>

@@ -1,63 +1,101 @@
-# Astro Starter Kit: Blog
+# InTirupati Astro
 
-```sh
-npm create astro@latest -- --template blog
-```
+A Cloudflare Pages-ready Astro website for Tirupati blogs, Shayari, Quotes, SEO tools, and devotional prompts.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## What changed
 
-Features:
+- Added Decap CMS admin at `/admin`
+- Configured GitHub backend content editing via Cloudflare Functions OAuth
+- Added collections for Blog Posts, Shayari, Quotes, SEO Tools, and Devotional Prompts
+- Stored CMS content in `/src/content`
+- Added media uploads to `/public/uploads`
+- Improved SEO support with sitemap, robots.txt, Open Graph, and canonical URLs
+- Removed Netlify Identity and Netlify Git Gateway usage in favor of GitHub + Cloudflare
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Project structure
 
 ```text
+├── functions/              # Cloudflare Pages Functions for GitHub OAuth
 ├── public/
+│   ├── admin/             # Decap CMS admin interface and config
+│   ├── uploads/           # Image/media uploads committed to GitHub
+│   └── robots.txt
 ├── src/
-│   ├── assets/
 │   ├── components/
-│   ├── content/
+│   ├── content/           # Markdown collections managed by Decap CMS
 │   ├── layouts/
 │   └── pages/
 ├── astro.config.mjs
-├── README.md
 ├── package.json
-└── tsconfig.json
+├── tsconfig.json
+└── README.md
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Content collections
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- `blog` → `src/content/blog`
+- `shayari` → `src/content/shayari`
+- `quotes` → `src/content/quotes`
+- `tools` → `src/content/tools`
+- `prompts` → `src/content/prompts`
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## Admin panel
 
-Any static assets, like images, can be placed in the `public/` directory.
+Open:
 
-## 🧞 Commands
+```text
+https://<your-site-domain>/admin/
+```
 
-All commands are run from the root of the project, from a terminal:
+The admin panel uses Decap CMS and commits edits directly to GitHub.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## GitHub OAuth setup
 
-## 👀 Want to learn more?
+1. Create a GitHub OAuth App at `https://github.com/settings/developers`
+2. Set the Authorization callback URL to:
+   - `https://<your-cloudflare-pages-domain>/auth`
+3. Add the following Cloudflare Pages environment variables:
+   - `GITHUB_CLIENT_ID`
+   - `GITHUB_CLIENT_SECRET`
+4. Deploy the site to Cloudflare Pages.
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Media uploads
 
-## Credit
+Uploaded images and media are stored in `public/uploads` and served from `/uploads`.
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+## Local development
+
+```sh
+npm install
+npm run dev
+```
+
+## Build
+
+```sh
+npm run build
+```
+
+## Deployment
+
+1. Connect this repo to Cloudflare Pages.
+2. Set the build command to:
+   - `npm run build`
+3. Set the build output directory to:
+   - `dist`
+4. Add `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` to Cloudflare Pages environment variables.
+5. Publish the site.
+
+## SEO support
+
+- `astro-sitemap` generates a sitemap
+- `public/robots.txt` allows site crawling and excludes `/admin` and `/auth`
+- `src/components/BaseHead.astro` provides Open Graph and canonical metadata
+- `rss.xml.js` remains available for feeds
+
+## Notes
+
+- The site continues to use the existing Astro structure and functionality.
+- The Decap CMS GitHub backend avoids Netlify Identity or any paid authentication service.
+- All content edits made in the admin UI are committed directly to GitHub and can trigger Cloudflare Pages redeploys.
+

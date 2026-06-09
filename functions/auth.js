@@ -1,4 +1,4 @@
-﻿// Worker to handle GitHub OAuth only on /auth, and serve the Astro static site for all other routes.
+// Worker to handle GitHub OAuth only on /auth, and serve the Astro static site for all other routes.
 const STATE_COOKIE = 'github_oauth_state';
 
 const getCookie = (cookieHeader = '', name) => {
@@ -93,25 +93,26 @@ async function serveStatic(request, env) {
   const url = new URL(request.url);
   const pathname = url.pathname;
 
+  // Serve admin/index.html for any /admin path to support client-side routing in Decap CMS
   if (pathname === '/admin' || pathname === '/admin/' || pathname.startsWith('/admin/')) {
+    try {
+      const response = await env.ASSETS.fetch(request);
+      if (response.status !== 404) {
+        return response;
+      }
+    } catch (err) {
+      // ignore and continue
+    }
+
     const adminReq = new Request(new URL('/admin/index.html', request.url), request);
-    const adminRes = await env.__STATIC_CONTENT.get(adminReq);
-    if (adminRes) return adminRes;
-    return new Response('Admin not found', { status: 404 });
+    return env.ASSETS.fetch(adminReq);
   }
 
   try {
-    const assetRes = await env.__STATIC_CONTENT.get(request);
-    if (assetRes) return assetRes;
+    return await env.ASSETS.fetch(request);
   } catch (err) {
-    // ignore and continue to SPA fallback
+    return new Response('Not found', { status: 404 });
   }
-
-  const indexReq = new Request(new URL('/index.html', request.url), request);
-  const indexRes = await env.__STATIC_CONTENT.get(indexReq);
-  if (indexRes) return indexRes;
-
-  return new Response('Not found', { status: 404 });
 }
 
 export default {

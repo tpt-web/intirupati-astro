@@ -1,0 +1,53 @@
+fragment BlogParts on Blog {
+  __typename
+  title
+  description
+  pubDate
+  heroImage
+  body
+}
+
+fragment ShayariParts on Shayari {
+  __typename
+  title
+  description
+  pubDate
+  heroImage
+  body
+}
+
+fragment QuotesParts on Quotes {
+  __typename
+  title
+  description
+  pubDate
+  heroImage
+  body
+}
+
+fragment ToolsParts on Tools {
+  __typename
+  title
+  description
+  pubDate
+  heroImage
+  body
+}
+
+fragment PromptsParts on Prompts {
+  __typename
+  title
+  description
+  pubDate
+  heroImage
+  body
+}
+
+fragment StotrasParts on Stotras {
+  __typename
+  title
+  description
+  pubDate
+  heroImage
+  body
+}

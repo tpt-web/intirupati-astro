@@ -14,6 +14,7 @@ const baseSchema = ({ image }: { image: () => z.ZodTypeAny }) =>
 		heroImage: heroImage(image),
 	});
 
+// Local markdown files - works with Sitepins CMS
 const blog = defineCollection({
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
 	schema: ({ image }) =>
